@@ -29,14 +29,14 @@ protected:
     cocos2d::CCSprite *sprite;
 #endif
     // Maximos stats
-    float maxHP;
-    float maxAttack;
-    float maxDefense;
+    int maxHP;
+    int maxAttack;
+    int maxDefense;
     
     // Stats actuales
-    float hp;
-    float attack;
-    float defense;
+    int hp;
+    int attack;
+    int defense;
     
     // Ultimo movimiento usdo
     int lastMove;
@@ -45,6 +45,9 @@ protected:
     virtual void addMoves() = 0;
     
 public:
+    
+    // Pasa
+    bool pass;
     
     // Lista de movimientos
     std::vector<Move *> moves;
@@ -69,17 +72,17 @@ public:
 #ifdef Cocos2d
     cocos2d::CCSprite* getSprite();
 #endif
-    float getMaxHP();
-    float getHP();
-    float getAttack();
-    float getDefense();
+    int getMaxHP();
+    int getHP();
+    int getAttack();
+    int getDefense();
     int getNumMoves();
     int getLastMove();
     // "Setters" - dependen de los efectos activos
-    void setHP(float _hp);
-    void setDefense(float _defense);
-    void setAttack(float _attack);
-    void setLastMovePP(float _pp);
+    void setHP(int _hp);
+    void setDefense(int _defense);
+    void setAttack(int _attack);
+    void setLastMovePP(int _pp);
     
     // Retorna el pet en string
     std::string toString();

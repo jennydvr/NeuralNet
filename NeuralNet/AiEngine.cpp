@@ -59,12 +59,6 @@ int AiEngine::neuralNetMove(Pet me, Pet foe)
     // Feedforward
     std::vector<float> output = neuralNet.feedForward(input);
     
-    for (int i = 0; i != 4; ++i) {
-        std::cout << output[i] << " " ;
-    }
-    std::cout << "\n";
-    
-    
     // Escojo la mejor decision segun la red
     float prob = -1;
     int best = -1;
@@ -115,12 +109,16 @@ int AiEngine::offensiveMove(Pet me, Pet foe){
     if (me.moves[3]->getPP() > 0)
         return 3;
     
+    if (me.moves[1]->getPP() > 0)
+        return 1;
+    
     return -1;
 }
 
 int AiEngine::tackleMove(Pet me){
     if(me.moves[0]->getPP() > 0)
         return 0;
-    
+    if(me.moves[1]->getPP() > 0)
+        return 1;
     return -1;
 }

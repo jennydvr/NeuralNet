@@ -10,7 +10,7 @@
 
 Pet::Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode) :
 maxHP(_maxHP), maxAttack(_maxAttack), maxDefense(_maxDefense),
-hp(_maxHP), attack(_maxAttack), defense(_maxDefense), engine(_mode), lastMove(0) {}
+hp(_maxHP), attack(_maxAttack), defense(_maxDefense), engine(_mode), lastMove(0), pass(false) {}
 
 #ifdef Cocos2d
 
@@ -49,6 +49,7 @@ std::string Pet::useMove(Pet *foe)
     if (n == -1) {
         std::stringstream ss;
         ss << name << " ha pasado, no le quedan movimientos!";
+        pass = true;
         return ss.str();
     }
     
@@ -56,7 +57,7 @@ std::string Pet::useMove(Pet *foe)
     moves[n]->effect(this, foe);
     lastMove = n;
     
-    std::cout << n << std::endl;
+    //std::cout << n << std::endl << std::endl;
     
     std::stringstream ss;
     ss << name << " ha usado " << moves[n]->name << "!";
@@ -70,22 +71,22 @@ int Pet::getNumMoves()
     return (int)moves.size();
 }
 
-float Pet::getMaxHP()
+int Pet::getMaxHP()
 {
     return maxHP;
 }
 
-float Pet::getHP()
+int Pet::getHP()
 {
     return hp;
 }
 
-float Pet::getAttack()
+int Pet::getAttack()
 {
     return attack;
 }
 
-float Pet::getDefense()
+int Pet::getDefense()
 {
     return defense;
 }
@@ -94,7 +95,7 @@ int Pet::getLastMove(){
     
     return lastMove;
 }
-void Pet::setHP(float _hp)
+void Pet::setHP(int _hp)
 {
     hp += _hp;
     
@@ -105,7 +106,7 @@ void Pet::setHP(float _hp)
         hp = maxHP;
 }
 
-void Pet::setDefense(float _defense)
+void Pet::setDefense(int _defense)
 {
     defense += _defense;
     
@@ -116,7 +117,7 @@ void Pet::setDefense(float _defense)
         defense = maxDefense;
 }
 
-void Pet::setAttack(float _attack)
+void Pet::setAttack(int _attack)
 {
     attack += _attack;
     
@@ -127,7 +128,7 @@ void Pet::setAttack(float _attack)
         attack = maxAttack;
 }
 
-void Pet::setLastMovePP(float _pp)
+void Pet::setLastMovePP(int _pp)
 {
     moves[lastMove]->setPP(_pp);
 }
@@ -135,8 +136,8 @@ void Pet::setLastMovePP(float _pp)
 std::string Pet::toString()
 {
     std::stringstream ss;
-    ss << "HP = " << hp << "/" << maxHP << "\n";
-    ss << "Atk = " << attack << "/" << maxAttack << "\n";
-    ss << "Def = " << defense << "/" << maxDefense;
+    ss << "    HP = " << hp << "/" << maxHP << "\n";
+    ss << "    Atk = " << attack << "/" << maxAttack << "\n";
+    ss << "    Def = " << defense << "/" << maxDefense;
     return ss.str();
 }
