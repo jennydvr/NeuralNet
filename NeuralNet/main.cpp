@@ -8,22 +8,43 @@
 
 #include "NeuralNet.h"
 
+#include "Saquito.h"
+
 using namespace std;
 
 int main(int argc, const char * argv[])
 {
-    NeuralNet mom;
+    srand((unsigned int)time(NULL));
     
-    vector<float> in;
-    for (int i = 0; i != 14; ++i)
-        in.push_back(i);
+    Saquito player1(0), player2(0);
+    bool currentPlayer = true;
     
-    vector<float> ff = mom.feedForward(in);
-    
-    for (int i = 0; i != 4; ++i) {
-        cout << ff[i] << endl;
+    while (true) {
+        cout << player1.toString() << endl;
+        cout << player2.toString() << endl << endl;
+        
+        if (currentPlayer)
+        {
+            if (player1.getHP() <= 0) {
+                cout << "Gana PLAYER 2\n";
+                break;
+            }
+            
+            player1.useMove(&player2);
+            
+        }
+        else
+        {
+            if (player2.getHP() <= 0) {
+                cout << "Gana PLAYER 1\n";
+                break;
+            }
+            
+            player2.useMove(&player1);
+        }
+        
+        currentPlayer = !currentPlayer;
     }
     
     return 0;
 }
-

@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		00099F2D17049DC0001FB9A0 /* NeuralNet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F2B17049DC0001FB9A0 /* NeuralNet.cpp */; };
+		00099F3A17049F2B001FB9A0 /* Charm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F2E17049F2B001FB9A0 /* Charm.cpp */; };
+		00099F3B17049F2B001FB9A0 /* Pet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F3017049F2B001FB9A0 /* Pet.cpp */; };
+		00099F3C17049F2B001FB9A0 /* Recover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F3217049F2B001FB9A0 /* Recover.cpp */; };
+		00099F3D17049F2B001FB9A0 /* Saquito.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F3417049F2B001FB9A0 /* Saquito.cpp */; };
+		00099F3E17049F2B001FB9A0 /* Spite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F3617049F2B001FB9A0 /* Spite.cpp */; };
+		00099F3F17049F2B001FB9A0 /* Tackle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F3817049F2B001FB9A0 /* Tackle.cpp */; };
+		00099F441704A999001FB9A0 /* AiEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F421704A999001FB9A0 /* AiEngine.cpp */; };
+		00099F471704AB46001FB9A0 /* Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F451704AB46001FB9A0 /* Move.cpp */; };
 		0094F42316D58CEE00FA0F2E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0094F42216D58CEE00FA0F2E /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +34,22 @@
 /* Begin PBXFileReference section */
 		00099F2B17049DC0001FB9A0 /* NeuralNet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NeuralNet.cpp; sourceTree = "<group>"; };
 		00099F2C17049DC0001FB9A0 /* NeuralNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeuralNet.h; sourceTree = "<group>"; };
+		00099F2E17049F2B001FB9A0 /* Charm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Charm.cpp; sourceTree = "<group>"; };
+		00099F2F17049F2B001FB9A0 /* Charm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Charm.h; sourceTree = "<group>"; };
+		00099F3017049F2B001FB9A0 /* Pet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pet.cpp; sourceTree = "<group>"; };
+		00099F3117049F2B001FB9A0 /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
+		00099F3217049F2B001FB9A0 /* Recover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Recover.cpp; sourceTree = "<group>"; };
+		00099F3317049F2B001FB9A0 /* Recover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recover.h; sourceTree = "<group>"; };
+		00099F3417049F2B001FB9A0 /* Saquito.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Saquito.cpp; sourceTree = "<group>"; };
+		00099F3517049F2B001FB9A0 /* Saquito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Saquito.h; sourceTree = "<group>"; };
+		00099F3617049F2B001FB9A0 /* Spite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spite.cpp; sourceTree = "<group>"; };
+		00099F3717049F2B001FB9A0 /* Spite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spite.h; sourceTree = "<group>"; };
+		00099F3817049F2B001FB9A0 /* Tackle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tackle.cpp; sourceTree = "<group>"; };
+		00099F3917049F2B001FB9A0 /* Tackle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tackle.h; sourceTree = "<group>"; };
+		00099F421704A999001FB9A0 /* AiEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AiEngine.cpp; sourceTree = "<group>"; };
+		00099F431704A999001FB9A0 /* AiEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiEngine.h; sourceTree = "<group>"; };
+		00099F451704AB46001FB9A0 /* Move.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Move.cpp; sourceTree = "<group>"; };
+		00099F461704AB46001FB9A0 /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
 		0094F41F16D58CEE00FA0F2E /* NeuralNet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NeuralNet; sourceTree = BUILT_PRODUCTS_DIR; };
 		0094F42216D58CEE00FA0F2E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +65,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00099F4017049FB9001FB9A0 /* Moves */ = {
+			isa = PBXGroup;
+			children = (
+				00099F451704AB46001FB9A0 /* Move.cpp */,
+				00099F461704AB46001FB9A0 /* Move.h */,
+				00099F2E17049F2B001FB9A0 /* Charm.cpp */,
+				00099F2F17049F2B001FB9A0 /* Charm.h */,
+				00099F3217049F2B001FB9A0 /* Recover.cpp */,
+				00099F3317049F2B001FB9A0 /* Recover.h */,
+				00099F3617049F2B001FB9A0 /* Spite.cpp */,
+				00099F3717049F2B001FB9A0 /* Spite.h */,
+				00099F3817049F2B001FB9A0 /* Tackle.cpp */,
+				00099F3917049F2B001FB9A0 /* Tackle.h */,
+			);
+			name = Moves;
+			sourceTree = "<group>";
+		};
+		00099F4117049FC3001FB9A0 /* Pets */ = {
+			isa = PBXGroup;
+			children = (
+				00099F3017049F2B001FB9A0 /* Pet.cpp */,
+				00099F3117049F2B001FB9A0 /* Pet.h */,
+				00099F3417049F2B001FB9A0 /* Saquito.cpp */,
+				00099F3517049F2B001FB9A0 /* Saquito.h */,
+			);
+			name = Pets;
+			sourceTree = "<group>";
+		};
 		0094F41616D58CEE00FA0F2E = {
 			isa = PBXGroup;
 			children = (
@@ -60,9 +112,13 @@
 		0094F42116D58CEE00FA0F2E /* NeuralNet */ = {
 			isa = PBXGroup;
 			children = (
+				00099F4017049FB9001FB9A0 /* Moves */,
+				00099F4117049FC3001FB9A0 /* Pets */,
 				0094F42216D58CEE00FA0F2E /* main.cpp */,
 				00099F2B17049DC0001FB9A0 /* NeuralNet.cpp */,
 				00099F2C17049DC0001FB9A0 /* NeuralNet.h */,
+				00099F421704A999001FB9A0 /* AiEngine.cpp */,
+				00099F431704A999001FB9A0 /* AiEngine.h */,
 			);
 			path = NeuralNet;
 			sourceTree = "<group>";
@@ -120,6 +176,14 @@
 			files = (
 				0094F42316D58CEE00FA0F2E /* main.cpp in Sources */,
 				00099F2D17049DC0001FB9A0 /* NeuralNet.cpp in Sources */,
+				00099F3A17049F2B001FB9A0 /* Charm.cpp in Sources */,
+				00099F3B17049F2B001FB9A0 /* Pet.cpp in Sources */,
+				00099F3C17049F2B001FB9A0 /* Recover.cpp in Sources */,
+				00099F3D17049F2B001FB9A0 /* Saquito.cpp in Sources */,
+				00099F3E17049F2B001FB9A0 /* Spite.cpp in Sources */,
+				00099F3F17049F2B001FB9A0 /* Tackle.cpp in Sources */,
+				00099F441704A999001FB9A0 /* AiEngine.cpp in Sources */,
+				00099F471704AB46001FB9A0 /* Move.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
