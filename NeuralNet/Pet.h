@@ -9,10 +9,13 @@
 #ifndef __Neuralmon__Pet__
 #define __Neuralmon__Pet__
 
+
 #include <iostream>
 #include <vector>
 #include <sstream>
-
+#ifdef Cocos2d
+#include "cocos2d.h"
+#endif
 #include "Move.h"
 #include "AiEngine.h"
 
@@ -21,7 +24,10 @@ protected:
     
     // Nombre del pet
     std::string name;
-    
+#ifdef Cocos2d
+    // Imagen de la mascota
+    cocos2d::CCSprite *sprite;
+#endif
     // Maximos stats
     float maxHP;
     float maxAttack;
@@ -58,13 +64,17 @@ public:
     // Usa un movimiento escogido
     std::string useMove(Pet *foe);
     
+    
     // Getters
+#ifdef Cocos2d
+    cocos2d::CCSprite* getSprite();
+#endif
     float getMaxHP();
     float getHP();
     float getAttack();
     float getDefense();
     int getNumMoves();
-    
+    int getLastMove();
     // "Setters" - dependen de los efectos activos
     void setHP(float _hp);
     void setDefense(float _defense);

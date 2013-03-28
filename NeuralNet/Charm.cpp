@@ -8,7 +8,7 @@
 
 #include "Charm.h"
 
-Charm::Charm() : Move(20)
+Charm::Charm() : Move(3)
 {
     name = "Charm";
 }
@@ -23,5 +23,5 @@ void Charm::effect(Pet *me, Pet *foe)
     --pp;
     
     // Quita PPs
-    foe->setAttack(-2);
+    foe->setAttack(-20);
 }

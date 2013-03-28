@@ -24,6 +24,9 @@ protected:
     // Modo del engine
     int mode;
     
+    int offensiveMove(Pet me, Pet foe);
+    
+    int tackleMove(Pet me);
     // Escoge un move al azar
     int randomMove(Pet me);
     

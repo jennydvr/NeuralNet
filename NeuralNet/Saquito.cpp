@@ -11,7 +11,6 @@
 Saquito::Saquito(int mode) : Pet(106, 90, 130, mode)
 {
     name = "Saquito";
-    
     addMoves();
 }
 

@@ -9,8 +9,22 @@
 #include "Pet.h"
 
 Pet::Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode) :
-    maxHP(_maxHP), maxAttack(_maxAttack), maxDefense(_maxDefense),
-    hp(_maxHP), attack(_maxAttack), defense(_maxDefense), engine(_mode), lastMove(0) {}
+maxHP(_maxHP), maxAttack(_maxAttack), maxDefense(_maxDefense),
+hp(_maxHP), attack(_maxAttack), defense(_maxDefense), engine(_mode), lastMove(0) {}
+
+#ifdef Cocos2d
+
+void Pet::init(const char* name)
+{
+    sprite = cocos2d::CCSprite::create(name);
+    sprite->setScale(0.5f);
+}
+
+cocos2d::CCSprite* Pet::getSprite()
+{
+    return sprite;
+}
+#endif
 
 std::string Pet::useMove(int n, Pet *foe)
 {
@@ -50,6 +64,7 @@ std::string Pet::useMove(Pet *foe)
 }
 
 
+
 int Pet::getNumMoves()
 {
     return (int)moves.size();
@@ -75,6 +90,10 @@ float Pet::getDefense()
     return defense;
 }
 
+int Pet::getLastMove(){
+    
+    return lastMove;
+}
 void Pet::setHP(float _hp)
 {
     hp += _hp;

@@ -21,7 +21,12 @@ int AiEngine::chooseMove(Pet me, Pet foe)
         case 0:
             move = neuralNetMove(me, foe);
             break;
-            
+        case 1:
+            move = offensiveMove(me,foe);
+            break;
+        case 2:
+            move = tackleMove(me);
+            break;
         default:
             move = randomMove(me);
             break;
@@ -88,5 +93,34 @@ int AiEngine::randomMove(Pet me)
             return sm[i];
     
     // Si llegaste aqui, no tenias pp en ningun movimiento
+    return -1;
+}
+
+int AiEngine::offensiveMove(Pet me, Pet foe){
+    
+    if( 0.6 * me.getMaxHP() <= me.getHP() && me.moves[3]->getPP() > 0 &&  me.getLastMove() != 3){
+        return 3;
+    }
+    
+    if(/*(rand() % 2) == 1 &&*/  0.5 * foe.getMaxHP() < foe.getHP() && me.getLastMove() != 1)
+        if (0.5 * me.getMaxHP() >= me.getHP() && me.moves[1]->getPP() > 0 )
+            return 1;
+    
+    if(me.moves[0]->getPP() > 0)
+        return 0;
+    
+    if (me.moves[2]->getPP() > 0)
+        return 2;
+    
+    if (me.moves[3]->getPP() > 0)
+        return 3;
+    
+    return -1;
+}
+
+int AiEngine::tackleMove(Pet me){
+    if(me.moves[0]->getPP() > 0)
+        return 0;
+    
     return -1;
 }
