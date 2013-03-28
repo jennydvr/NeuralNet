@@ -23,8 +23,9 @@ void Recover::effect(Pet *me, Pet *foe)
     --pp;
     
     // Cura desde el 10% hasta el 50% de la vida
-    float low = me->getMaxHP() * 0.35;
-    float high = me->getMaxHP() * 0.65;
+    //float low = me->getMaxHP() * 0.5;
+    float high = me->getMaxHP() * 0.5;
     
-    me->setHP(low + (float)rand()/((float)RAND_MAX/(high - low)));
+    //me->setHP(low + (float)rand()/((float)RAND_MAX/(high - low)));
+    me->setHP(high);
 }

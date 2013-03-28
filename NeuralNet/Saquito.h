@@ -13,7 +13,7 @@
 #include "Recover.h"
 #include "Spite.h"
 #include "Charm.h"
-
+#include "Leer.h"
 class Saquito : public Pet {
 protected:
     

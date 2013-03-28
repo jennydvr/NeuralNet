@@ -23,5 +23,5 @@ void Charm::effect(Pet *me, Pet *foe)
     --pp;
     
     // Quita PPs
-    foe->setAttack(-20);
+    foe->setAttack(-15);
 }

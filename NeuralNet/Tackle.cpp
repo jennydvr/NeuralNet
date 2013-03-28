@@ -8,7 +8,7 @@
 
 #include "Tackle.h"
 
-Tackle::Tackle() : Move(50, 50)
+Tackle::Tackle() : Move(35, 50)
 {
     name = "Tackle";
 }

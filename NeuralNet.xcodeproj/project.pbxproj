@@ -17,6 +17,7 @@
 		00099F441704A999001FB9A0 /* AiEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F421704A999001FB9A0 /* AiEngine.cpp */; };
 		00099F471704AB46001FB9A0 /* Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F451704AB46001FB9A0 /* Move.cpp */; };
 		0094F42316D58CEE00FA0F2E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0094F42216D58CEE00FA0F2E /* main.cpp */; };
+		2E47F8001704D62A00BE7285 /* Leer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E47F7FE1704D62900BE7285 /* Leer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,8 @@
 		00099F461704AB46001FB9A0 /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
 		0094F41F16D58CEE00FA0F2E /* NeuralNet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NeuralNet; sourceTree = BUILT_PRODUCTS_DIR; };
 		0094F42216D58CEE00FA0F2E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2E47F7FE1704D62900BE7285 /* Leer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Leer.cpp; sourceTree = "<group>"; };
+		2E47F7FF1704D62900BE7285 /* Leer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				00099F3717049F2B001FB9A0 /* Spite.h */,
 				00099F3817049F2B001FB9A0 /* Tackle.cpp */,
 				00099F3917049F2B001FB9A0 /* Tackle.h */,
+				2E47F7FE1704D62900BE7285 /* Leer.cpp */,
+				2E47F7FF1704D62900BE7285 /* Leer.h */,
 			);
 			name = Moves;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				00099F3F17049F2B001FB9A0 /* Tackle.cpp in Sources */,
 				00099F441704A999001FB9A0 /* AiEngine.cpp in Sources */,
 				00099F471704AB46001FB9A0 /* Move.cpp in Sources */,
+				2E47F8001704D62A00BE7285 /* Leer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

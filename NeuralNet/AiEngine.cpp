@@ -96,8 +96,8 @@ int AiEngine::offensiveMove(Pet me, Pet foe){
         return 3;
     }
     
-    if(/*(rand() % 2) == 1 &&*/  0.5 * foe.getMaxHP() < foe.getHP() && me.getLastMove() != 1)
-        if (0.5 * me.getMaxHP() >= me.getHP() && me.moves[1]->getPP() > 0 )
+    if(/*(rand() % 2) == 1 &&*/  0.4 * foe.getMaxHP() < foe.getHP() && me.getLastMove() != 1)
+        if (0.35 * me.getMaxHP() >= me.getHP() && me.moves[1]->getPP() > 0 )
             return 1;
     
     if(me.moves[0]->getPP() > 0)
