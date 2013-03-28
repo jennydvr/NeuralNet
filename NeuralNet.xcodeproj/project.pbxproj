@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0094F42316D58CEE00FA0F2E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0094F42216D58CEE00FA0F2E /* main.cpp */; };
-		0094F42D16D58DC000FA0F2E /* neuralNet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0094F42B16D58DC000FA0F2E /* neuralNet.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +25,6 @@
 /* Begin PBXFileReference section */
 		0094F41F16D58CEE00FA0F2E /* NeuralNet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NeuralNet; sourceTree = BUILT_PRODUCTS_DIR; };
 		0094F42216D58CEE00FA0F2E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		0094F42B16D58DC000FA0F2E /* neuralNet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = neuralNet.cpp; sourceTree = "<group>"; };
-		0094F42C16D58DC000FA0F2E /* neuralNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = neuralNet.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				0094F42216D58CEE00FA0F2E /* main.cpp */,
-				0094F42B16D58DC000FA0F2E /* neuralNet.cpp */,
-				0094F42C16D58DC000FA0F2E /* neuralNet.h */,
 			);
 			path = NeuralNet;
 			sourceTree = "<group>";
@@ -119,7 +114,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0094F42316D58CEE00FA0F2E /* main.cpp in Sources */,
-				0094F42D16D58DC000FA0F2E /* neuralNet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +212,7 @@
 				0094F42A16D58CEF00FA0F2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
