@@ -8,7 +8,7 @@
 
 #ifndef __Neuralmon__Pet__
 #define __Neuralmon__Pet__
-
+//#define Cocos2d
 
 #include <iostream>
 #include <vector>

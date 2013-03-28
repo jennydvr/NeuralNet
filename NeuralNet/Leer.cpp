@@ -8,7 +8,7 @@
 
 #include "Leer.h"
 
-Leer::Leer() : Move(3)
+Leer::Leer() : Move(10)
 {
     name = "Leer";
 }
@@ -23,5 +23,5 @@ void Leer::effect(Pet *me, Pet *foe)
     --pp;
     
     // Quita PPs
-    foe->setDefense(-12);
+    foe->setDefense(-4);
 }

@@ -8,7 +8,7 @@
 
 #include "Saquito.h"
 
-Saquito::Saquito(int mode) : Pet(100, 72, 59, mode)
+Saquito::Saquito(int mode) : Pet(300, 72, 59, mode)
 {
     name = "Saquito";
     addMoves();
