@@ -8,18 +8,31 @@
 
 #include "neuralNet.h"
 #include "Saquito.h"
-
+#include <numeric>
+#include <math.h>
 const int NeuralNet::layerSize[4] = {14, NUMHIDDEN, 4};
 
 NeuralNet::NeuralNet()
 {
     for (int i = 0; i != 42; ++i)
         encoding.push_back(-1 + (float)rand()/((float)RAND_MAX/(2)));
+    
+    fitness =std::numeric_limits<float>::min();
 }
 
 NeuralNet::NeuralNet(std::vector<float> _encoding)
 {
     encoding = _encoding;
+    fitness =std::numeric_limits<float>::min();
+
+}
+void NeuralNet::setEncoding(std::vector<float> _encoding){
+    encoding = _encoding;
+    fitness =std::numeric_limits<float>::min();
+}
+
+std::vector<float> NeuralNet::getEncoding(){
+    return encoding;
 }
 
 std::vector<float> NeuralNet::feedForward(std::vector<float> input)
@@ -65,6 +78,9 @@ void NeuralNet::mutate()
     
     mutateNode(r1);
     mutateNode(r2);
+    
+    fitness =std::numeric_limits<float>::min();
+
 }
 
 void NeuralNet::mutateNode(int node)
@@ -93,48 +109,98 @@ NeuralNet NeuralNet::crossover(NeuralNet mom, NeuralNet dad)
     return NeuralNet(kid);
 }
 
-int s1 = 0;
-int s2 = 0;
+float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
+    
+   // Saquito player1(1);
+    Saquito player2(0,_encoding);
+    
+    //Esto es ineficiente
+    std::vector<Saquito> openentes;
+    openentes.push_back(Saquito(1));
+    openentes.push_back(Saquito(2));
+    //Agrego varios random para que se enfrenten a varios
+    openentes.push_back(Saquito(5));
+    openentes.push_back(Saquito(5));
+    openentes.push_back(Saquito(5));
+    openentes.push_back(Saquito(5));
+    openentes.push_back(Saquito(5));
+    openentes.push_back(Saquito(5));
+    openentes.push_back(Saquito(5));
+    openentes.push_back(Saquito(5));
+    openentes.push_back(Saquito(5));
+    openentes.push_back(Saquito(5));
 
-void NeuralNet::game()
-{
-    Saquito player1(1), player2(5);
+
+    int GAMESTOURNAMENT = (int)openentes.size();
+    
+    //int score1 = 0;
+    //int score2 = 0;
+    //int tie = 0;
+    std::vector<int> timeEachGame(GAMESTOURNAMENT);
+    std::vector<int> resultEachGame(GAMESTOURNAMENT);
+
     bool currentPlayer = true;
-    
-    clock_t tstart = clock();
-    
-    while (true) {
-        if (player1.pass && player2.pass)
-            break;
-        
-        if (currentPlayer)
-        {
-            if (player1.getHP() <= 0)
+    int time = 0;
+    for (int i=0; i < GAMESTOURNAMENT; i++) {
+        //player1.resetStats();
+        openentes[i].resetStats();
+        player2.resetStats();
+        time = 0;
+        while (true) {
+          
+            if (/*player1*/openentes[i].pass && player2.pass)
                 break;
             
-            player1.useMove(&player2);
-            
+            if (currentPlayer)
+            {
+                if (/*player1*/openentes[i].getHP() <= 0)
+                    break;
+                
+                /*player1*/openentes[i].useMove(&player2);
+                
+            }
+            else
+            {
+                if (player2.getHP() <= 0)
+                    break;
+                
+                player2.useMove(&/*player1*/openentes[i]);
+            }
+            time++;
+            currentPlayer = !currentPlayer;
         }
-        else
-        {
-            if (player2.getHP() <= 0)
-                break;
-            
-            player2.useMove(&player1);
+        timeEachGame[i] = time;
+       // std::cout << "P1 HP: "<< player1.getHP()<<" P2 HP: "<< player2.getHP()<<std::endl;
+        if (/*player1*/openentes[i].getHP() > player2.getHP()) {
+            resultEachGame[i] = 0;
+           // resultEachGame[i] = 300 + player1.getHP()/3;
+
+        } else if (player2.getHP() > /*player1*/openentes[i].getHP()) {
+            resultEachGame[i] = 2;
+           // resultEachGame[i] = 300 + player2.getHP()/3;
+        } else {
+            resultEachGame[i] = 1;
         }
-        
-        currentPlayer = !currentPlayer;
     }
     
-    clock_t tend = clock();
-    float elapsed_secs = float(tend - tstart) / CLOCKS_PER_SEC;
+    float sum = std::accumulate(resultEachGame.begin(),resultEachGame.end(),0);
+    sum = pow(sum,2);
     
-    if (player1.getHP() > player2.getHP()) {
-        s1 += 1;
-    } else if (player2.getHP() > player1.getHP()) {
-        s2 += 1;
-    } else {
-        //cout << "Empate\n";
-    }
+    //Luego sumar el promedio de las partidas aqui
+    //sum += std::accumulate(timeEachGame.begin(),timeEachGame.end(),0)/GAMESTOURNAMENT;
+    
+    return sum;
 }
+
+float NeuralNet::getFitness(){
+    
+    if (fitness == std::numeric_limits<float>::min()) {
+        fitness = NeuralNet::executeTournamentGames(encoding);
+    }
+    
+    return fitness;
+}
+
+
+
 

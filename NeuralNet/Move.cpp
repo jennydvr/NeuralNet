@@ -33,3 +33,9 @@ void Move::setPP(int _pp)
     else if (pp > maxPP)
         pp = maxPP;
 }
+
+void Move::resetMove(){
+
+     pp =maxPP;
+     power =maxPower;
+}

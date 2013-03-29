@@ -13,6 +13,11 @@ Saquito::Saquito(int mode) : Pet(300, 72, 59, mode)
     name = "Saquito";
     addMoves();
 }
+Saquito::Saquito(int mode,std::vector<float> encode) : Pet(300, 72, 59, mode,encode)
+{
+    name = "Saquito";
+    addMoves();
+}
 
 void Saquito::addMoves()
 {

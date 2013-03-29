@@ -26,14 +26,16 @@ protected:
     // Tamaño de cada capa
     const static int layerSize[4];
     
-    // Torneo para calcular el fitness
-    void game();
-    
-public:
-    
+    float fitness;
     // Encoding de esta red
     std::vector<float> encoding;
     
+    
+public:
+    
+    void setEncoding(std::vector<float> _encoding);
+    std::vector<float> getEncoding();
+
     // Constructor aleatorio
     NeuralNet();
     
@@ -45,6 +47,10 @@ public:
     
     // Mutacion
     void mutate();
+    
+    
+    static float executeTournamentGames(std::vector<float> _encoding);
+
     
     // Crossover
     static NeuralNet crossover(NeuralNet mom, NeuralNet dad);

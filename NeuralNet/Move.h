@@ -44,6 +44,8 @@ public:
     
     // Getters
     float getPP();
+    
+    void resetMove();
 };
 
 #endif /* defined(__Neuralmon__Move__) */

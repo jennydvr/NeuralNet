@@ -9,7 +9,7 @@
 #include "NeuralNet.h"
 
 #include "Saquito.h"
-
+#include "GenAl.h"
 using namespace std;
 
 int score1 = 0;
@@ -61,9 +61,20 @@ int main(int argc, const char * argv[])
 {
     srand((unsigned int)time(0));
     
+    /*
     for (int i = 0; i != 100; ++i) {
         game();
-    }
+    }*/
+   
+    GenAI genetic = GenAI(100);
     
+    genetic.Initialize();
+    
+    genetic.Run(1000);
+    
+    NeuralNet test = genetic.getBest();
+    std::cout <<"Fitness: " << test.getFitness()<< endl;
+    //std::cout <<"tostring: " << test.getEncoding()<< endl;
+
     return 0;
 }

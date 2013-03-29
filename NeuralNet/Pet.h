@@ -46,6 +46,7 @@ protected:
     
 public:
     
+    void resetStats();
     // Pasa
     bool pass;
     
@@ -57,6 +58,8 @@ public:
     
     // Constructor
     Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode);
+    Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode,std::vector<float> encode);
+
     
     // Inicializa la mascota
     void init(const char* name);

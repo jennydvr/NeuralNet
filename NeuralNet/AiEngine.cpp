@@ -13,6 +13,16 @@ AiEngine::AiEngine(int _mode)
 {
     mode = _mode;
 }
+AiEngine::AiEngine(int _mode, std::vector<float>  net){
+    
+    mode = _mode;
+    neuralNet = NeuralNet(net ) ;
+}
+
+void AiEngine::setNeuralNet(std::vector<float>  neural){
+
+    neuralNet = neural;
+}
 
 int AiEngine::chooseMove(Pet me, Pet foe)
 {
@@ -115,3 +125,4 @@ int AiEngine::tackleMove(Pet me){
         return 1;
     return -1;
 }
+

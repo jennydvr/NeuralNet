@@ -12,6 +12,9 @@ Pet::Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode) :
 maxHP(_maxHP), maxAttack(_maxAttack), maxDefense(_maxDefense),
 hp(_maxHP), attack(_maxAttack), defense(_maxDefense), engine(_mode), lastMove(0), pass(false) {}
 
+Pet::Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode,std::vector<float> encode) :
+maxHP(_maxHP), maxAttack(_maxAttack), maxDefense(_maxDefense),
+hp(_maxHP), attack(_maxAttack), defense(_maxDefense), engine(_mode,encode), lastMove(0), pass(false) {}
 #ifdef Cocos2d
 
 void Pet::init(const char* name)
@@ -26,6 +29,18 @@ cocos2d::CCSprite* Pet::getSprite()
 }
 #endif
 
+void Pet::resetStats(){
+
+    hp = maxHP;
+    attack = maxAttack;
+    defense = maxDefense;
+    lastMove = 0;
+    
+    for (int i = 0; i < (int)moves.size(); i++) {
+        moves[i]->resetMove();
+    }
+    
+}
 std::string Pet::useMove(int n, Pet *foe)
 {
     // Chequea si se puede usar el movimiento

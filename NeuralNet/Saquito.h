@@ -25,6 +25,9 @@ public:
     // Constructor
     Saquito(int mode = 10);
     
+    // Constructor
+    Saquito(int mode,std::vector<float> encode);
+    
 };
 
 #endif /* defined(__Neuralmon__Saquito__) */

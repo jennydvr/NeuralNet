@@ -37,10 +37,17 @@ public:
     
     // Constructor
     AiEngine(int _mode);
+    // Constructor
+    AiEngine(int _mode, std::vector<float> encode);
     
     // Escoge un movimiento
     int chooseMove(Pet me, Pet foe);
-    
+
+    void setNeuralNet(std::vector<float> encode);
+
+    float getFitness(){
+        return neuralNet.getFitness();
+    }
 };
 
 #endif /* defined(__NeuralNet__AiEngine__) */
