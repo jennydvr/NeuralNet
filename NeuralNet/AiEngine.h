@@ -38,7 +38,9 @@ public:
     // Constructor
     AiEngine(int _mode);
     
+    // Escoge un movimiento
     int chooseMove(Pet me, Pet foe);
+    
 };
 
 #endif /* defined(__NeuralNet__AiEngine__) */

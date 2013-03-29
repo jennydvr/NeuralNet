@@ -7,6 +7,7 @@
 //
 
 #include "neuralNet.h"
+#include "Saquito.h"
 
 const int NeuralNet::layerSize[4] = {14, NUMHIDDEN, 4};
 
@@ -91,3 +92,49 @@ NeuralNet NeuralNet::crossover(NeuralNet mom, NeuralNet dad)
     
     return NeuralNet(kid);
 }
+
+int s1 = 0;
+int s2 = 0;
+
+void NeuralNet::game()
+{
+    Saquito player1(1), player2(5);
+    bool currentPlayer = true;
+    
+    clock_t tstart = clock();
+    
+    while (true) {
+        if (player1.pass && player2.pass)
+            break;
+        
+        if (currentPlayer)
+        {
+            if (player1.getHP() <= 0)
+                break;
+            
+            player1.useMove(&player2);
+            
+        }
+        else
+        {
+            if (player2.getHP() <= 0)
+                break;
+            
+            player2.useMove(&player1);
+        }
+        
+        currentPlayer = !currentPlayer;
+    }
+    
+    clock_t tend = clock();
+    float elapsed_secs = float(tend - tstart) / CLOCKS_PER_SEC;
+    
+    if (player1.getHP() > player2.getHP()) {
+        s1 += 1;
+    } else if (player2.getHP() > player1.getHP()) {
+        s2 += 1;
+    } else {
+        //cout << "Empate\n";
+    }
+}
+

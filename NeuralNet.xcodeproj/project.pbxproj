@@ -17,6 +17,7 @@
 		00099F441704A999001FB9A0 /* AiEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F421704A999001FB9A0 /* AiEngine.cpp */; };
 		00099F471704AB46001FB9A0 /* Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00099F451704AB46001FB9A0 /* Move.cpp */; };
 		0094F42316D58CEE00FA0F2E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0094F42216D58CEE00FA0F2E /* main.cpp */; };
+		00B931E11705459F000B7354 /* GenAl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00B931DF1705459F000B7354 /* GenAl.cpp */; };
 		2E47F8001704D62A00BE7285 /* Leer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E47F7FE1704D62900BE7285 /* Leer.cpp */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,8 @@
 		00099F461704AB46001FB9A0 /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
 		0094F41F16D58CEE00FA0F2E /* NeuralNet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NeuralNet; sourceTree = BUILT_PRODUCTS_DIR; };
 		0094F42216D58CEE00FA0F2E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		00B931DF1705459F000B7354 /* GenAl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GenAl.cpp; sourceTree = "<group>"; };
+		00B931E01705459F000B7354 /* GenAl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenAl.h; sourceTree = "<group>"; };
 		2E47F7FE1704D62900BE7285 /* Leer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Leer.cpp; sourceTree = "<group>"; };
 		2E47F7FF1704D62900BE7285 /* Leer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +127,8 @@
 				00099F2C17049DC0001FB9A0 /* NeuralNet.h */,
 				00099F421704A999001FB9A0 /* AiEngine.cpp */,
 				00099F431704A999001FB9A0 /* AiEngine.h */,
+				00B931DF1705459F000B7354 /* GenAl.cpp */,
+				00B931E01705459F000B7354 /* GenAl.h */,
 			);
 			path = NeuralNet;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				00099F441704A999001FB9A0 /* AiEngine.cpp in Sources */,
 				00099F471704AB46001FB9A0 /* Move.cpp in Sources */,
 				2E47F8001704D62A00BE7285 /* Leer.cpp in Sources */,
+				00B931E11705459F000B7354 /* GenAl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +264,7 @@
 		0094F42916D58CEF00FA0F2E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_OPTIMIZATION_LEVEL = 3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -265,6 +272,7 @@
 		0094F42A16D58CEF00FA0F2E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_OPTIMIZATION_LEVEL = 3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

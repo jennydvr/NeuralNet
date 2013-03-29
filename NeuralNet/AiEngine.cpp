@@ -7,6 +7,7 @@
 //
 
 #include "Pet.h"
+#include "Saquito.h"
 
 AiEngine::AiEngine(int _mode)
 {
@@ -15,24 +16,16 @@ AiEngine::AiEngine(int _mode)
 
 int AiEngine::chooseMove(Pet me, Pet foe)
 {
-    int move = -1;
-    
     switch (mode) {
         case 0:
-            move = neuralNetMove(me, foe);
-            break;
+            return neuralNetMove(me, foe);
         case 1:
-            move = offensiveMove(me,foe);
-            break;
+            return offensiveMove(me,foe);
         case 2:
-            move = tackleMove(me);
-            break;
+            return tackleMove(me);
         default:
-            move = randomMove(me);
-            break;
+            return randomMove(me);
     }
-    
-    return move;
 }
 
 int AiEngine::neuralNetMove(Pet me, Pet foe)

@@ -26,6 +26,9 @@ protected:
     // Tamaño de cada capa
     const static int layerSize[4];
     
+    // Torneo para calcular el fitness
+    void game();
+    
 public:
     
     // Encoding de esta red
@@ -45,6 +48,9 @@ public:
     
     // Crossover
     static NeuralNet crossover(NeuralNet mom, NeuralNet dad);
+    
+    // Fitness
+    float getFitness();
     
 };
 
