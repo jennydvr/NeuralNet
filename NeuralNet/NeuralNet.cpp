@@ -117,6 +117,10 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     //Esto es ineficiente
     std::vector<Saquito> openentes;
     openentes.push_back(Saquito(1));
+    openentes.push_back(Saquito(1));
+    openentes.push_back(Saquito(1));
+    openentes.push_back(Saquito(1));
+    openentes.push_back(Saquito(2));
     openentes.push_back(Saquito(2));
     //Agrego varios random para que se enfrenten a varios
     openentes.push_back(Saquito(5));
