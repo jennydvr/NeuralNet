@@ -23,5 +23,5 @@ void Leer::effect(Pet *me, Pet *foe)
     --pp;
     
     // Quita PPs
-    foe->setDefense(-4);
+    foe->setDefense(-2);
 }
