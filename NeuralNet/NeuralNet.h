@@ -42,6 +42,9 @@ public:
     // Constructor a partir de encoding
     NeuralNet(std::vector<float> _encoding);
     
+    NeuralNet(const char * name);
+
+    
     // Feed Forward
     std::vector<float> feedForward(std::vector<float> input);
     
@@ -58,6 +61,7 @@ public:
     // Fitness
     float getFitness();
     
+    void toFile(const char * name);
 };
 
 #endif /* defined(__Neuralmon__NeuralNet__) */

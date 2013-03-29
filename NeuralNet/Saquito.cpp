@@ -19,6 +19,12 @@ Saquito::Saquito(int mode,std::vector<float> encode) : Pet(300, 72, 59, mode,enc
     addMoves();
 }
 
+Saquito::Saquito(int mode,const char * file): Pet(300, 72, 59, mode,file){
+    name = "Saquito";
+    addMoves();
+}
+
+
 void Saquito::addMoves()
 {
     moves.push_back(new Tackle());

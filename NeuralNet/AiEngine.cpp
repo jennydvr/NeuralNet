@@ -18,6 +18,11 @@ AiEngine::AiEngine(int _mode, std::vector<float>  net){
     mode = _mode;
     neuralNet = NeuralNet(net ) ;
 }
+AiEngine::AiEngine(int _mode, const char * file){
+    mode = _mode;
+    neuralNet = NeuralNet(file ) ;
+}
+
 
 void AiEngine::setNeuralNet(std::vector<float>  neural){
 
@@ -125,4 +130,10 @@ int AiEngine::tackleMove(Pet me){
         return 1;
     return -1;
 }
+
+void AiEngine::EncodgingToFile(const char * file){
+    
+    neuralNet.toFile(file);
+}
+
 

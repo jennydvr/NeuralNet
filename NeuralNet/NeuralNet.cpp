@@ -10,6 +10,8 @@
 #include "Saquito.h"
 #include <numeric>
 #include <math.h>
+#include <iostream>
+#include <fstream>
 const int NeuralNet::layerSize[4] = {14, NUMHIDDEN, 4};
 
 NeuralNet::NeuralNet()
@@ -205,6 +207,39 @@ float NeuralNet::getFitness(){
     return fitness;
 }
 
+NeuralNet::NeuralNet(const char * name){
+
+    std::string line;
+    std::ifstream myfile (name);
+    if (myfile.is_open())
+    {
+        while ( myfile.good() )
+        {
+            getline (myfile,line);
+            encoding.push_back((float)atof(line.c_str()));
+        }
+        myfile.close();
+    }
+    else{
+        std::cout << "Unable to open file for read encoding";
+        exit(0);
+    }
+    
+    fitness =std::numeric_limits<float>::min();
+}
+void NeuralNet::toFile(const char * name){
+    std::ofstream myfile (name);
+    
+    if (myfile.is_open())
+    {
+        for (int i=0; i< (int)encoding.size(); i++) {
+            myfile << encoding[i]<< std::endl;
+        }
+        
+        myfile.close();
+    }
+    else std::cout << "Unable to open file for write encodgin";
+}
 
 
 

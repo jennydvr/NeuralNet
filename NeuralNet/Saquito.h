@@ -27,6 +27,8 @@ public:
     
     // Constructor
     Saquito(int mode,std::vector<float> encode);
+    Saquito(int mode,const char * file);
+
     
 };
 

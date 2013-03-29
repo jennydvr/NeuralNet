@@ -59,6 +59,8 @@ public:
     // Constructor
     Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode);
     Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode,std::vector<float> encode);
+    Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode,const char * file);
+
 
     
     // Inicializa la mascota

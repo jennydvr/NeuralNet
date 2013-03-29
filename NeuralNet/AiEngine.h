@@ -39,6 +39,8 @@ public:
     AiEngine(int _mode);
     // Constructor
     AiEngine(int _mode, std::vector<float> encode);
+    AiEngine(int _mode, const char * file);
+
     
     // Escoge un movimiento
     int chooseMove(Pet me, Pet foe);
@@ -48,6 +50,8 @@ public:
     float getFitness(){
         return neuralNet.getFitness();
     }
+    
+    void EncodgingToFile(const char * file);
 };
 
 #endif /* defined(__NeuralNet__AiEngine__) */
