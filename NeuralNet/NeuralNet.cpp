@@ -7,11 +7,9 @@
 //
 
 #include "neuralNet.h"
+
 #include "Saquito.h"
-#include <numeric>
-#include <math.h>
-#include <iostream>
-#include <fstream>
+#include "Rattata.h"
 
 const int NeuralNet::layerSize[4] = {10, NUMHIDDEN, 4};
 const int NeuralNet::numWeights = (layerSize[0] + 1) * layerSize[1] + (layerSize[1] + 1) * layerSize[2];
@@ -115,29 +113,45 @@ NeuralNet NeuralNet::crossover(NeuralNet mom, NeuralNet dad)
 
 float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     
-    // Saquito player1(1);
-    Saquito player2(0,_encoding);
+    // Inicializar al jugador
+    std::vector<FormulaValue>stats;
+    stats.push_back(FormulaValue(HP, 24, 30, 74, 50, 1,0));
+    stats.push_back(FormulaValue(ATTACK, 12, 56, 195, 50, 1,0));
+    stats.push_back(FormulaValue(DEFENSE, 195, 35, 86, 50, 1, 0));
+    
+    Rattata player2(stats, 0, _encoding);
     
     //Esto es ineficiente
-    std::vector<Saquito> openentes;
-    openentes.push_back(Saquito(1));
-    openentes.push_back(Saquito(1));
-    openentes.push_back(Saquito(1));
-    openentes.push_back(Saquito(1));
-    openentes.push_back(Saquito(2));
-    openentes.push_back(Saquito(2));
+    std::vector<Pet *> openentes;
+    /*
+    openentes.push_back(new Saquito(1));
+    openentes.push_back(new Saquito(1));
+    openentes.push_back(new Saquito(1));
+    openentes.push_back(new Saquito(1));
+    openentes.push_back(new Saquito(2));
+    openentes.push_back(new Saquito(2));
+     */
     //Agrego varios random para que se enfrenten a varios
-    openentes.push_back(Saquito(5));
-    openentes.push_back(Saquito(5));
-    openentes.push_back(Saquito(5));
-    openentes.push_back(Saquito(5));
-    openentes.push_back(Saquito(5));
-    openentes.push_back(Saquito(5));
-    openentes.push_back(Saquito(5));
-    openentes.push_back(Saquito(5));
-    openentes.push_back(Saquito(5));
-    openentes.push_back(Saquito(5));
-    
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(5));
     
     int GAMESTOURNAMENT = (int)openentes.size();
     
@@ -147,20 +161,20 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     bool currentPlayer = true;
     int time = 0;
     for (int i=0; i < GAMESTOURNAMENT; i++) {
-        openentes[i].resetStats();
+        openentes[i]->resetStats();
         player2.resetStats();
         time = 0;
         while (true) {
             
-            if (openentes[i].pass && player2.pass)
+            if (openentes[i]->pass && player2.pass)
                 break;
             
             if (currentPlayer)
             {
-                if (openentes[i].getHP() <= 0)
+                if (openentes[i]->getHP() <= 0)
                     break;
                 
-                openentes[i].useMove(&player2);
+                openentes[i]->useMove(&player2);
                 
             }
             else
@@ -168,7 +182,7 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
                 if (player2.getHP() <= 0)
                     break;
                 
-                player2.useMove(&openentes[i]);
+                player2.useMove(openentes[i]);
             }
             ++time;
             currentPlayer = !currentPlayer;
@@ -176,11 +190,11 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
         
         timeEachGame[i] = time;
         
-        if (openentes[i].getHP() > player2.getHP()) {
+        if (openentes[i]->getHP() > player2.getHP()) {
             resultEachGame[i] = 0;
             // resultEachGame[i] = 300 + player1.getHP()/3;
             
-        } else if (player2.getHP() > openentes[i].getHP()) {
+        } else if (player2.getHP() > openentes[i]->getHP()) {
             resultEachGame[i] = 2;
             // resultEachGame[i] = 300 + player2.getHP()/3;
         } else {
