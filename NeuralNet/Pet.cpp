@@ -21,6 +21,45 @@ maxHP(_maxHP), maxAttack(_maxAttack), maxDefense(_maxDefense),
 hp(_maxHP), attack(_maxAttack), defense(_maxDefense), engine(_mode,file), lastMove(0), pass(false) {}
 
 
+Pet::Pet(std::vector<FormulaValue>values,int _mode) :  engine(_mode), lastMove(0), pass(false) {
+    
+    for (int i = 0; i < (int) values.size(); i++) {
+        setStatByFormula(values[i]);
+    }
+    
+}
+Pet::Pet(std::vector<FormulaValue>values, int _mode,std::vector<float> encode): engine(_mode,encode), lastMove(0), pass(false){
+    for (int i = 0; i < (int) values.size(); i++) {
+        setStatByFormula(values[i]);
+    }
+}
+Pet::Pet(std::vector<FormulaValue>values, int _mode,const char * file) :engine(_mode,file), lastMove(0), pass(false){
+    for (int i = 0; i < (int) values.size(); i++) {
+        setStatByFormula(values[i]);
+    }
+}
+
+void Pet::setStatByFormula(FormulaValue valuesFor){
+    
+    switch (valuesFor.stat) {
+        case HP:
+            maxHP = ((valuesFor.IV + (2*valuesFor.Base) + (valuesFor.EV /4) + 100)*valuesFor.Level/100 ) + 10 + valuesFor.Extra;
+            hp = maxHP;
+            break;
+        case ATTACK:
+            maxAttack = (((valuesFor.IV + (2*valuesFor.Base) + (valuesFor.EV /4))*valuesFor.Level/100 ) + 5)*valuesFor.Nature + valuesFor.Extra;
+            attack = maxAttack;
+            break;
+        case DEFENSE:
+            maxDefense = (((valuesFor.IV + (2*valuesFor.Base) + (valuesFor.EV /4))*valuesFor.Level/100 ) + 5)*valuesFor.Nature + valuesFor.Extra;
+            defense = maxDefense;
+            break;
+        default:
+            break;
+    }
+
+    
+}
 
 #ifdef Cocos2d
 

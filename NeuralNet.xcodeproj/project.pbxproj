@@ -20,6 +20,13 @@
 		00B931E11705459F000B7354 /* GenAl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00B931DF1705459F000B7354 /* GenAl.cpp */; };
 		2E47F8001704D62A00BE7285 /* Leer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E47F7FE1704D62900BE7285 /* Leer.cpp */; };
 		2E55D06117062CFE00F03022 /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E55D05F17062CFE00F03022 /* utilities.cpp */; };
+		2EEB5E1C17076CF70094CF05 /* Crunch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB5E1417076CF60094CF05 /* Crunch.cpp */; };
+		2EEB5E1D17076CF70094CF05 /* DoubleEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB5E1617076CF60094CF05 /* DoubleEdge.cpp */; };
+		2EEB5E1E17076CF70094CF05 /* Endeavor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB5E1817076CF60094CF05 /* Endeavor.cpp */; };
+		2EEB5E1F17076CF70094CF05 /* SuperFang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB5E1A17076CF60094CF05 /* SuperFang.cpp */; };
+		2EEB5E2617076D060094CF05 /* Rattata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB5E2017076D060094CF05 /* Rattata.cpp */; };
+		2EEB5E2717076D060094CF05 /* Selem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB5E2217076D060094CF05 /* Selem.cpp */; };
+		2EEB5E2817076D060094CF05 /* Yaram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB5E2417076D060094CF05 /* Yaram.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +68,20 @@
 		2E47F7FF1704D62900BE7285 /* Leer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leer.h; sourceTree = "<group>"; };
 		2E55D05F17062CFE00F03022 /* utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utilities.cpp; sourceTree = "<group>"; };
 		2E55D06017062CFE00F03022 /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
+		2EEB5E1417076CF60094CF05 /* Crunch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Crunch.cpp; sourceTree = "<group>"; };
+		2EEB5E1517076CF60094CF05 /* Crunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crunch.h; sourceTree = "<group>"; };
+		2EEB5E1617076CF60094CF05 /* DoubleEdge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoubleEdge.cpp; sourceTree = "<group>"; };
+		2EEB5E1717076CF60094CF05 /* DoubleEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleEdge.h; sourceTree = "<group>"; };
+		2EEB5E1817076CF60094CF05 /* Endeavor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Endeavor.cpp; sourceTree = "<group>"; };
+		2EEB5E1917076CF60094CF05 /* Endeavor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endeavor.h; sourceTree = "<group>"; };
+		2EEB5E1A17076CF60094CF05 /* SuperFang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SuperFang.cpp; sourceTree = "<group>"; };
+		2EEB5E1B17076CF70094CF05 /* SuperFang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperFang.h; sourceTree = "<group>"; };
+		2EEB5E2017076D060094CF05 /* Rattata.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rattata.cpp; sourceTree = "<group>"; };
+		2EEB5E2117076D060094CF05 /* Rattata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rattata.h; sourceTree = "<group>"; };
+		2EEB5E2217076D060094CF05 /* Selem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Selem.cpp; sourceTree = "<group>"; };
+		2EEB5E2317076D060094CF05 /* Selem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selem.h; sourceTree = "<group>"; };
+		2EEB5E2417076D060094CF05 /* Yaram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Yaram.cpp; sourceTree = "<group>"; };
+		2EEB5E2517076D060094CF05 /* Yaram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yaram.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +98,14 @@
 		00099F4017049FB9001FB9A0 /* Moves */ = {
 			isa = PBXGroup;
 			children = (
+				2EEB5E1417076CF60094CF05 /* Crunch.cpp */,
+				2EEB5E1517076CF60094CF05 /* Crunch.h */,
+				2EEB5E1617076CF60094CF05 /* DoubleEdge.cpp */,
+				2EEB5E1717076CF60094CF05 /* DoubleEdge.h */,
+				2EEB5E1817076CF60094CF05 /* Endeavor.cpp */,
+				2EEB5E1917076CF60094CF05 /* Endeavor.h */,
+				2EEB5E1A17076CF60094CF05 /* SuperFang.cpp */,
+				2EEB5E1B17076CF70094CF05 /* SuperFang.h */,
 				00099F451704AB46001FB9A0 /* Move.cpp */,
 				00099F461704AB46001FB9A0 /* Move.h */,
 				00099F2E17049F2B001FB9A0 /* Charm.cpp */,
@@ -96,6 +125,12 @@
 		00099F4117049FC3001FB9A0 /* Pets */ = {
 			isa = PBXGroup;
 			children = (
+				2EEB5E2017076D060094CF05 /* Rattata.cpp */,
+				2EEB5E2117076D060094CF05 /* Rattata.h */,
+				2EEB5E2217076D060094CF05 /* Selem.cpp */,
+				2EEB5E2317076D060094CF05 /* Selem.h */,
+				2EEB5E2417076D060094CF05 /* Yaram.cpp */,
+				2EEB5E2517076D060094CF05 /* Yaram.h */,
 				00099F3017049F2B001FB9A0 /* Pet.cpp */,
 				00099F3117049F2B001FB9A0 /* Pet.h */,
 				00099F3417049F2B001FB9A0 /* Saquito.cpp */,
@@ -202,6 +237,13 @@
 				2E47F8001704D62A00BE7285 /* Leer.cpp in Sources */,
 				00B931E11705459F000B7354 /* GenAl.cpp in Sources */,
 				2E55D06117062CFE00F03022 /* utilities.cpp in Sources */,
+				2EEB5E1C17076CF70094CF05 /* Crunch.cpp in Sources */,
+				2EEB5E1D17076CF70094CF05 /* DoubleEdge.cpp in Sources */,
+				2EEB5E1E17076CF70094CF05 /* Endeavor.cpp in Sources */,
+				2EEB5E1F17076CF70094CF05 /* SuperFang.cpp in Sources */,
+				2EEB5E2617076D060094CF05 /* Rattata.cpp in Sources */,
+				2EEB5E2717076D060094CF05 /* Selem.cpp in Sources */,
+				2EEB5E2817076D060094CF05 /* Yaram.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,30 @@
 #include "Move.h"
 #include "AiEngine.h"
 
+enum Stat {HP,ATTACK, DEFENSE};
+
+struct FormulaValue {
+    Stat stat;
+    int IV;
+    int Base;
+    int EV;
+    int Level;
+    float Nature;
+    // Sumarle un extra al valor que se genera.
+    int Extra;
+    
+    FormulaValue(Stat _stat,int _IV, int _Base, int _EV, int _Level, float _Nature, int _Extra){
+        stat = _stat;
+        IV = _IV;
+        Base = _Base;
+        EV = _EV;
+        Level = _Level;
+        Nature = _Nature;
+        Extra = _Extra;
+    }
+    
+};
+
 class Pet {
 protected:
     
@@ -44,6 +68,9 @@ protected:
     // Agrega los movimientos
     virtual void addMoves() = 0;
     
+    
+    void setStatByFormula(FormulaValue valuesFor);
+    
 public:
     
     void resetStats();
@@ -60,7 +87,10 @@ public:
     Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode);
     Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode,std::vector<float> encode);
     Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode,const char * file);
-
+    
+    Pet(std::vector<FormulaValue>values,int _mode);
+    Pet(std::vector<FormulaValue>values, int _mode,std::vector<float> encode);
+    Pet(std::vector<FormulaValue>values, int _mode,const char * file);
 
     
     // Inicializa la mascota

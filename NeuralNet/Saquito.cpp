@@ -25,6 +25,21 @@ Saquito::Saquito(int mode,const char * file): Pet(300, 72, 59, mode,file){
 }
 
 
+Saquito::Saquito(std::vector<FormulaValue> values,int mode) : Pet(values,mode){
+    name = "Saquito";
+    addMoves();
+}
+
+Saquito::Saquito(std::vector<FormulaValue> values,int mode,std::vector<float> encode) : Pet(values, mode,encode)
+{
+    name = "Saquito";
+    addMoves();
+}
+
+Saquito::Saquito(std::vector<FormulaValue> values,int mode,const char * file): Pet(values, mode,file){
+    name = "Saquito";
+    addMoves();
+}
 void Saquito::addMoves()
 {
     moves.push_back(new Tackle());
