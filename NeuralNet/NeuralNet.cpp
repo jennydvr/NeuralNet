@@ -133,25 +133,25 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
      */
     //Agrego varios random para que se enfrenten a varios
     openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
-    openentes.push_back(new Rattata(5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, 5));
     
     int GAMESTOURNAMENT = (int)openentes.size();
     
