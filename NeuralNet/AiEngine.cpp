@@ -9,35 +9,49 @@
 #include "Pet.h"
 #include "Saquito.h"
 
-AiEngine::AiEngine(int _mode)
+AiEngine::AiEngine(TypeIA _mode)
 {
     mode = _mode;
+    helper = -1;
 }
-AiEngine::AiEngine(int _mode, std::vector<float>  net){
+AiEngine::AiEngine(TypeIA _mode, std::vector<float>  net){
     
     mode = _mode;
     neuralNet = NeuralNet(net ) ;
+    
+    helper = -1;
 }
-AiEngine::AiEngine(int _mode, const char * file){
+AiEngine::AiEngine(TypeIA _mode, const char * file){
     mode = _mode;
     neuralNet = NeuralNet(file ) ;
+    
+    helper = -1;
 }
 
 
 void AiEngine::setNeuralNet(std::vector<float>  neural){
-
+    
     neuralNet = neural;
 }
 
 int AiEngine::chooseMove(Pet me, Pet foe)
 {
     switch (mode) {
-        case 0:
+        case NEURAL:
             return neuralNetMove(me, foe);
-        case 1:
+        case OFFENSIVE:
             return offensiveMove(me,foe);
-        case 2:
+        case TACKLE:
             return tackleMove(me);
+        case CRUNCH:
+            return CrunchMove(me);
+        case SUPERFANG:
+            return SuperFangMove(me,foe);
+        case BLOOD:
+            return BloodMove(me, foe);
+        case SUPERDOU:
+            return SuperDouble(me, foe);
+            break;
         default:
             return randomMove(me);
     }
@@ -128,6 +142,96 @@ int AiEngine::tackleMove(Pet me){
         return 1;
     return -1;
 }
+
+int AiEngine::CrunchMove(Pet me){
+    if(me.moves[0]->getPP() > 0)
+        return 0;
+    if(me.moves[1]->getPP() > 0)
+        return 1;
+    if(me.moves[2]->getPP() > 0)
+        return 2;
+    if(me.moves[3]->getPP() > 0)
+        return 3;
+    return -1;
+}
+
+int AiEngine::SuperFangMove(Pet me,Pet foe){
+    
+    if(0.2 * foe.getMaxHP() < foe.getHP())
+        if(me.moves[1]->getPP() > 0)
+            return 1;
+    if(me.moves[0]->getPP() > 0)
+        return 0;
+    if(me.moves[2]->getPP() > 0)
+        return 2;
+    if(me.moves[3]->getPP() > 0)
+        return 3;
+    return -1;
+    
+}
+
+int AiEngine::BloodMove(Pet me,Pet foe){
+    
+    int diferencia = foe.getHP() - me.getHP();
+    if( diferencia > 0  && me.getLastMove() != 3){
+        if(me.moves[3]->getPP() > 0)
+            return 3;
+    }
+    
+    if (rand() % 100 >= 30){
+        if(0.70 * me.getMaxHP() < me.getHP()){
+            if(me.moves[2]->getPP() > 0)
+                return 2;
+        }else{
+            if(me.moves[0]->getPP() > 0)
+                return 0;
+        }
+    }else{
+        if(0.25 * foe.getMaxHP() < foe.getHP())
+            if(me.moves[1]->getPP() > 0)
+                return 1;
+    }
+    
+    if(me.moves[0]->getPP() > 0)
+        return 0;
+    if(me.moves[1]->getPP() > 0)
+        return 1;
+    if(me.moves[2]->getPP() > 0)
+        return 2;
+    if(me.moves[3]->getPP() > 0)
+        return 3;
+    
+    return -1;
+}
+
+int AiEngine::SuperDouble(Pet me,Pet foe){
+    
+    if(helper <= 0)
+        if(me.moves[1]->getPP() > 0){
+            helper++;
+            return 1;
+        }
+    
+    if(helper <= 1)
+        if(me.moves[2]->getPP() > 0){
+            helper++;
+            return 2;
+        }
+    
+    if(me.moves[0]->getPP() > 0)
+        return 0;
+    
+    if(me.moves[1]->getPP() > 0)
+        return 1;
+    if(me.moves[2]->getPP() > 0)
+        return 2;
+    
+    if(me.moves[3]->getPP() > 0)
+        return 3;
+    
+    return -1;
+}
+
 
 void AiEngine::EncodgingToFile(const char * file){
     

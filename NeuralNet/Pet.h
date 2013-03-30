@@ -84,13 +84,13 @@ public:
     AiEngine engine;
     
     // Constructor
-    Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode);
-    Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode,std::vector<float> encode);
-    Pet(float _maxHP, float _maxAttack, float _maxDefense, int _mode,const char * file);
+    Pet(float _maxHP, float _maxAttack, float _maxDefense, TypeIA _mode);
+    Pet(float _maxHP, float _maxAttack, float _maxDefense, TypeIA _mode,std::vector<float> encode);
+    Pet(float _maxHP, float _maxAttack, float _maxDefense, TypeIA _mode,const char * file);
     
-    Pet(std::vector<FormulaValue>values,int _mode);
-    Pet(std::vector<FormulaValue>values, int _mode,std::vector<float> encode);
-    Pet(std::vector<FormulaValue>values, int _mode,const char * file);
+    Pet(std::vector<FormulaValue>values,TypeIA _mode);
+    Pet(std::vector<FormulaValue>values, TypeIA _mode,std::vector<float> encode);
+    Pet(std::vector<FormulaValue>values, TypeIA _mode,const char * file);
 
     
     // Inicializa la mascota

@@ -14,19 +14,26 @@
 #include "NeuralNet.h"
 
 class Pet;
-
+enum TypeIA {NEURAL,RANDOM,OFFENSIVE, TACKLE,CRUNCH,SUPERFANG,BLOOD,SUPERDOU};
 class AiEngine {
 protected:
-    
+    int helper;
     // Red neural del engine
     NeuralNet neuralNet;
     
     // Modo del engine
-    int mode;
+    TypeIA mode;
     
     int offensiveMove(Pet me, Pet foe);
     
     int tackleMove(Pet me);
+    
+    //Ratta IA
+    int CrunchMove(Pet me);
+    int SuperFangMove(Pet me,Pet foe);
+    int BloodMove(Pet me,Pet foe);
+    int SuperDouble(Pet me,Pet foe);
+    
     // Escoge un move al azar
     int randomMove(Pet me);
     
@@ -36,17 +43,17 @@ protected:
 public:
     
     // Constructor
-    AiEngine(int _mode);
+    AiEngine(TypeIA _mode);
     // Constructor
-    AiEngine(int _mode, std::vector<float> encode);
-    AiEngine(int _mode, const char * file);
-
+    AiEngine(TypeIA _mode, std::vector<float> encode);
+    AiEngine(TypeIA _mode, const char * file);
+    
     
     // Escoge un movimiento
     int chooseMove(Pet me, Pet foe);
-
+    
     void setNeuralNet(std::vector<float> encode);
-
+    
     float getFitness(){
         return neuralNet.getFitness();
     }

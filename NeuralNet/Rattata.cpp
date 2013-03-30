@@ -8,36 +8,36 @@
 
 #include "Rattata.h"
 
-Rattata::Rattata(int mode) : Pet(61, 43, 29, mode)
+Rattata::Rattata(TypeIA mode) : Pet(61, 43, 29, mode)
 {
-    name = "rattata.png";
+    name = "Rattata";
     
     addMoves();
 }
 
-Rattata::Rattata(int mode,std::vector<float> encode) : Pet(61, 43, 29, mode,encode)
+Rattata::Rattata(TypeIA mode,std::vector<float> encode) : Pet(61, 43, 29, mode,encode)
 {
     name = "Rattata";
     addMoves();
 }
 
-Rattata::Rattata(int mode,const char * file): Pet(61, 43, 29, mode,file){
+Rattata::Rattata(TypeIA mode,const char * file): Pet(61, 43, 29, mode,file){
     name = "Rattata";
     addMoves();
 }
 
-Rattata::Rattata(std::vector<FormulaValue> values,int mode) : Pet(values,mode){
+Rattata::Rattata(std::vector<FormulaValue> values,TypeIA mode) : Pet(values,mode){
     name = "Rattata";
     addMoves();
 }
 
-Rattata::Rattata(std::vector<FormulaValue> values,int mode,std::vector<float> encode) : Pet(values, mode,encode)
+Rattata::Rattata(std::vector<FormulaValue> values,TypeIA mode,std::vector<float> encode) : Pet(values, mode,encode)
 {
     name = "Rattata";
     addMoves();
 }
 
-Rattata::Rattata(std::vector<FormulaValue> values,int mode,const char * file): Pet(values, mode,file){
+Rattata::Rattata(std::vector<FormulaValue> values,TypeIA mode,const char * file): Pet(values, mode,file){
     name = "Rattata";
     addMoves();
 }

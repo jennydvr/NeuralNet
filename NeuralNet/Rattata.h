@@ -23,15 +23,15 @@ protected:
 public:
     
     // Constructor
-    Rattata(int mode = 10);
+    Rattata(TypeIA mode = RANDOM);
     
 
-    Rattata(int mode,std::vector<float> encode);
-    Rattata(int mode,const char * file);
+    Rattata(TypeIA mode,std::vector<float> encode);
+    Rattata(TypeIA mode,const char * file);
     
-    Rattata(std::vector<FormulaValue> values,int mode);
-    Rattata(std::vector<FormulaValue> values,int mode,std::vector<float> encode);
-    Rattata(std::vector<FormulaValue> values,int mode,const char * file);
+    Rattata(std::vector<FormulaValue> values,TypeIA mode);
+    Rattata(std::vector<FormulaValue> values,TypeIA mode,std::vector<float> encode);
+    Rattata(std::vector<FormulaValue> values,TypeIA mode,const char * file);
 };
 
 #endif /* defined(__Neuralmon_Mac__Rattata__) */

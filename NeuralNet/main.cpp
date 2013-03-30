@@ -17,7 +17,7 @@ int score2 = 0;
 
 void game()
 {
-    Saquito player1(1), player2(5);
+    Saquito player1(RANDOM), player2(RANDOM);
     bool currentPlayer = true;
     
     clock_t tstart = clock();

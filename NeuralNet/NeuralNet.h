@@ -16,7 +16,6 @@
 #include <math.h>
 #include <numeric>
 #include <fstream>
-
 #define NUMHIDDEN 2
 
 class NeuralNet {

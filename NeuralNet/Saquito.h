@@ -23,15 +23,15 @@ protected:
 public:
     
     // Constructor
-    Saquito(int mode = 10);
+    Saquito(TypeIA mode = RANDOM);
     
 
-    Saquito(int mode,std::vector<float> encode);
-    Saquito(int mode,const char * file);
+    Saquito(TypeIA mode,std::vector<float> encode);
+    Saquito(TypeIA mode,const char * file);
 
-    Saquito(std::vector<FormulaValue> values,int mode);
-    Saquito(std::vector<FormulaValue> values,int mode,std::vector<float> encode);
-    Saquito(std::vector<FormulaValue> values,int mode,const char * file);
+    Saquito(std::vector<FormulaValue> values,TypeIA mode);
+    Saquito(std::vector<FormulaValue> values,TypeIA mode,std::vector<float> encode);
+    Saquito(std::vector<FormulaValue> values,TypeIA mode,const char * file);
     
 };
 

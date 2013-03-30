@@ -25,11 +25,11 @@ public:
     // Constructor
     Selem();
 
-    Selem(int mode,std::vector<float> encode);
-    Selem(int mode,const char * file);
+    Selem(TypeIA mode,std::vector<float> encode);
+    Selem(TypeIA mode,const char * file);
     
-    Selem(std::vector<FormulaValue> values,int mode,std::vector<float> encode);
-    Selem(std::vector<FormulaValue> values,int mode,const char * file);
+    Selem(std::vector<FormulaValue> values,TypeIA mode,std::vector<float> encode);
+    Selem(std::vector<FormulaValue> values,TypeIA mode,const char * file);
 };
 
 #endif /* defined(__Neuralmon__Selem__) */

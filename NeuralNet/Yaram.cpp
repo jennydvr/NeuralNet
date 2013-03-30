@@ -8,14 +8,14 @@
 
 #include "Yaram.h"
 
-Yaram::Yaram() : Pet(300, 72, 59,2)
+Yaram::Yaram() : Pet(300, 72, 59,RANDOM)
 {
     name = "Yaram";
 
     addMoves();
 }
 
-Yaram::Yaram(std::vector<FormulaValue> values) : Pet(values,2)
+Yaram::Yaram(std::vector<FormulaValue> values) : Pet(values,RANDOM)
 {
     name = "Yaram";
     

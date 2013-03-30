@@ -115,43 +115,48 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     
     // Inicializar al jugador
     std::vector<FormulaValue>stats;
-    stats.push_back(FormulaValue(HP, 24, 30, 74, 50, 1,0));
-    stats.push_back(FormulaValue(ATTACK, 12, 56, 195, 50, 1,0));
-    stats.push_back(FormulaValue(DEFENSE, 195, 35, 86, 50, 1, 0));
+    int level = 100;
+    stats.push_back(FormulaValue(HP, 170, 30, 31, level, 1,0));
+    stats.push_back(FormulaValue(ATTACK, 170, 56, 31, level, 1,0));
+    stats.push_back(FormulaValue(DEFENSE, 170, 35, 31, level, 1, 0));
     
-    Rattata player2(stats, 0, _encoding);
+    Rattata player2(stats, NEURAL, _encoding);
     
     //Esto es ineficiente
     std::vector<Pet *> openentes;
     /*
-    openentes.push_back(new Saquito(1));
-    openentes.push_back(new Saquito(1));
-    openentes.push_back(new Saquito(1));
-    openentes.push_back(new Saquito(1));
-    openentes.push_back(new Saquito(2));
-    openentes.push_back(new Saquito(2));
+     openentes.push_back(new Saquito(1));
+     openentes.push_back(new Saquito(1));
+     openentes.push_back(new Saquito(1));
+     openentes.push_back(new Saquito(1));
+     openentes.push_back(new Saquito(2));
+     openentes.push_back(new Saquito(2));
      */
     //Agrego varios random para que se enfrenten a varios
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
-    openentes.push_back(new Rattata(stats, 5));
+    openentes.push_back(new Rattata(stats, BLOOD));
+    openentes.push_back(new Rattata(stats, BLOOD));
+    openentes.push_back(new Rattata(stats, BLOOD));
+    openentes.push_back(new Rattata(stats, CRUNCH));
+    openentes.push_back(new Rattata(stats, CRUNCH));
+    openentes.push_back(new Rattata(stats, CRUNCH));
+    openentes.push_back(new Rattata(stats, SUPERFANG));
+    openentes.push_back(new Rattata(stats, SUPERFANG));
+    openentes.push_back(new Rattata(stats, SUPERFANG));
+    openentes.push_back(new Rattata(stats, SUPERDOU));
+    openentes.push_back(new Rattata(stats, SUPERDOU));
+    openentes.push_back(new Rattata(stats, SUPERDOU));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
+    openentes.push_back(new Rattata(stats, RANDOM));
     
     int GAMESTOURNAMENT = (int)openentes.size();
     
@@ -160,10 +165,12 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     
     bool currentPlayer = true;
     int time = 0;
+    int MaxTime = 0;
+    float sum = 0;
     for (int i=0; i < GAMESTOURNAMENT; i++) {
         openentes[i]->resetStats();
         player2.resetStats();
-        time = 0;
+        time = 1;
         while (true) {
             
             if (openentes[i]->pass && player2.pass)
@@ -189,23 +196,33 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
         }
         
         timeEachGame[i] = time;
+        if(time > MaxTime)
+            MaxTime = time;
         
         if (openentes[i]->getHP() > player2.getHP()) {
-            resultEachGame[i] = 0;
-            // resultEachGame[i] = 300 + player1.getHP()/3;
-            
+            resultEachGame[i] = 1 ;
         } else if (player2.getHP() > openentes[i]->getHP()) {
-            resultEachGame[i] = 2;
-            // resultEachGame[i] = 300 + player2.getHP()/3;
+            resultEachGame[i] = 4 ;
         } else {
-            resultEachGame[i] = 1;
+            resultEachGame[i] = 2 ;
         }
+        
     }
+   // sum = std::accumulate(resultEachGame.begin(),resultEachGame.end(),0);
+   // sum = pow(sum,2);
     
-    float sum = std::accumulate(resultEachGame.begin(),resultEachGame.end(),0);
-    
+    for (int i =0; i<GAMESTOURNAMENT; i++) {
+        int diff = (MaxTime - timeEachGame[i] + 1);
+        if(resultEachGame[i]==1){
+            sum-= 1 * diff ;
+        }else if(resultEachGame[i]==4){
+             sum+=  4 * diff ;
+        }else if(resultEachGame[i]==2){
+             sum+=2 * diff;
+        }
+    }    
     //Luego sumar el promedio de las partidas aqui
-    //sum += std::accumulate(timeEachGame.begin(),timeEachGame.end(),0)/GAMESTOURNAMENT;
+    //sum -= std::accumulate(timeEachGame.begin(),timeEachGame.end(),0);
     
     return sum;
 }

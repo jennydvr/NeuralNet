@@ -8,30 +8,30 @@
 
 #include "Selem.h"
 
-Selem::Selem() : Pet(300, 72, 59,0)
+Selem::Selem() : Pet(300, 72, 59,RANDOM)
 {
     name = "Selem";
     addMoves();
 }
 
-Selem::Selem(int mode,std::vector<float> encode) : Pet(300, 72, 59, mode,encode)
+Selem::Selem(TypeIA mode,std::vector<float> encode) : Pet(300, 72, 59, mode,encode)
 {
     name = "Selem";
     addMoves();
 }
 
-Selem::Selem(int mode,const char * file): Pet(300, 72, 59, mode,file){
+Selem::Selem(TypeIA mode,const char * file): Pet(300, 72, 59, mode,file){
     name = "Selem";
     addMoves();
 }
 
-Selem::Selem(std::vector<FormulaValue> values,int mode,std::vector<float> encode) : Pet(values, mode,encode)
+Selem::Selem(std::vector<FormulaValue> values,TypeIA mode,std::vector<float> encode) : Pet(values, mode,encode)
 {
     name = "Selem";
     addMoves();
 }
 
-Selem::Selem(std::vector<FormulaValue> values,int mode,const char * file): Pet(values, mode,file){
+Selem::Selem(std::vector<FormulaValue> values,TypeIA mode,const char * file): Pet(values, mode,file){
     name = "Selem";
     addMoves();
 }
