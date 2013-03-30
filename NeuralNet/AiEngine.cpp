@@ -53,6 +53,7 @@ int AiEngine::neuralNetMove(Pet me, Pet foe)
     input.push_back(me.getAttack());
     input.push_back(me.getDefense());
     
+    // Mis pps
     for (int i = 0; i != 4; ++i)
         input.push_back(me.moves[i]->getPP());
     
@@ -60,9 +61,6 @@ int AiEngine::neuralNetMove(Pet me, Pet foe)
     input.push_back(foe.getHP());
     input.push_back(foe.getAttack());
     input.push_back(foe.getDefense());
-    
-    for (int i = 0; i != 4; ++i)
-        input.push_back(foe.moves[i]->getPP());
     
     // Feedforward
     std::vector<float> output = neuralNet.feedForward(input);

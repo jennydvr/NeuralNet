@@ -26,10 +26,12 @@ protected:
     // Tamaño de cada capa
     const static int layerSize[4];
     
+    // Numero de pesos en total en la red
+    const static int numWeights;
+    
     float fitness;
     // Encoding de esta red
     std::vector<float> encoding;
-    
     
 public:
     
@@ -51,9 +53,8 @@ public:
     // Mutacion
     void mutate();
     
-    
+    // Ejecuta un torneo con una red dada
     static float executeTournamentGames(std::vector<float> _encoding);
-
     
     // Crossover
     static NeuralNet crossover(NeuralNet mom, NeuralNet dad);
