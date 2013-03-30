@@ -28,7 +28,7 @@ NeuralNet::NeuralNet(std::vector<float> _encoding)
 {
     encoding = _encoding;
     fitness =std::numeric_limits<float>::min();
-
+    
 }
 void NeuralNet::setEncoding(std::vector<float> _encoding){
     encoding = _encoding;
@@ -84,7 +84,7 @@ void NeuralNet::mutate()
     mutateNode(r2);
     
     fitness =std::numeric_limits<float>::min();
-
+    
 }
 
 void NeuralNet::mutateNode(int node)
@@ -115,7 +115,7 @@ NeuralNet NeuralNet::crossover(NeuralNet mom, NeuralNet dad)
 
 float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     
-   // Saquito player1(1);
+    // Saquito player1(1);
     Saquito player2(0,_encoding);
     
     //Esto es ineficiente
@@ -137,13 +137,13 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     openentes.push_back(Saquito(5));
     openentes.push_back(Saquito(5));
     openentes.push_back(Saquito(5));
-
-
+    
+    
     int GAMESTOURNAMENT = (int)openentes.size();
     
     std::vector<int> timeEachGame(GAMESTOURNAMENT);
     std::vector<int> resultEachGame(GAMESTOURNAMENT);
-
+    
     bool currentPlayer = true;
     int time = 0;
     for (int i=0; i < GAMESTOURNAMENT; i++) {
@@ -151,7 +151,7 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
         player2.resetStats();
         time = 0;
         while (true) {
-          
+            
             if (openentes[i].pass && player2.pass)
                 break;
             
@@ -178,11 +178,11 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
         
         if (openentes[i].getHP() > player2.getHP()) {
             resultEachGame[i] = 0;
-           // resultEachGame[i] = 300 + player1.getHP()/3;
-
+            // resultEachGame[i] = 300 + player1.getHP()/3;
+            
         } else if (player2.getHP() > openentes[i].getHP()) {
             resultEachGame[i] = 2;
-           // resultEachGame[i] = 300 + player2.getHP()/3;
+            // resultEachGame[i] = 300 + player2.getHP()/3;
         } else {
             resultEachGame[i] = 1;
         }
@@ -206,9 +206,13 @@ float NeuralNet::getFitness() {
 }
 
 NeuralNet::NeuralNet(const char * name){
-
+    
+    std::string fullpath(name);
+#ifdef Cocos2d
+    fullpath = cocos2d::CCFileUtils::sharedFileUtils()->fullPathForFilename(name);
+#endif
     std::string line;
-    std::ifstream myfile (name);
+    std::ifstream myfile (fullpath.c_str());
     if (myfile.is_open())
     {
         while ( myfile.good() )
