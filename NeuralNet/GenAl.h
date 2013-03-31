@@ -33,7 +33,8 @@ public:
         crossoverRate = CrosR;
         mutationRate = MutRa;
     }
-    
+    std::vector<float> allFitness;
+
     void Initialize();
     
     void Run(int epochs);

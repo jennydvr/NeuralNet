@@ -45,7 +45,7 @@ int AiEngine::chooseMove(Pet me, Pet foe)
         case TACKLE:
             return tackleMove(me);
         case CRUNCH:
-            return CrunchMove(me);
+            return CrunchMove(me,foe);
         case SUPERFANG:
             return SuperFangMove(me,foe);
         case BLOOD:
@@ -54,7 +54,7 @@ int AiEngine::chooseMove(Pet me, Pet foe)
             return SuperDouble(me, foe);
             break;
         case THREE:
-            return threeMove(me);
+            return threeMove(me,foe);
             break;
         default:
             return randomMove(me);
@@ -147,7 +147,12 @@ int AiEngine::tackleMove(Pet me){
     return -1;
 }
 
-int AiEngine::CrunchMove(Pet me){
+int AiEngine::CrunchMove(Pet me, Pet foe){
+    
+    if(0.40 * foe.getMaxHP() < foe.getHP() && 0.45 * me.getMaxHP() >= me.getHP() && me.moves[3]->getPP() > 0 &&  me.getLastMove() != 3){
+        return 3;
+    }
+    
     if(me.moves[0]->getPP() > 0)
         return 0;
     if(me.moves[1]->getPP() > 0)
@@ -240,8 +245,11 @@ int AiEngine::SuperDouble(Pet me,Pet foe){
     return -1;
 }
 
-int AiEngine::threeMove(Pet me){
+int AiEngine::threeMove(Pet me, Pet foe){
     
+    if(0.40 * foe.getMaxHP() < foe.getHP() && 0.45 * me.getMaxHP() >= me.getHP() && me.moves[3]->getPP() > 0 &&  me.getLastMove() != 3){
+        return 3;
+    }
     
     if(helper <= -1)
         if(me.moves[0]->getPP() > 0){

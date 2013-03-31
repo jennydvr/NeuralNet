@@ -113,6 +113,7 @@ void GenAI::Run(int epochs){
         
         population = GenAI::rankingSelection(population, pSize);
         
+        allFitness.push_back(getBest().getFitness());
         std::cout <<"Epoch: "<<e <<" MejorFit: " << getBest().getFitness()<< std::endl;
  
     }

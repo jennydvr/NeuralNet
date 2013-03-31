@@ -29,11 +29,11 @@ protected:
     int tackleMove(Pet me);
     
     //Ratta IA
-    int CrunchMove(Pet me);
+    int CrunchMove(Pet me, Pet foe);
     int SuperFangMove(Pet me,Pet foe);
     int BloodMove(Pet me,Pet foe);
     int SuperDouble(Pet me,Pet foe);
-    int threeMove(Pet me);
+    int threeMove(Pet me, Pet foe);
     // Escoge un move al azar
     int randomMove(Pet me);
     

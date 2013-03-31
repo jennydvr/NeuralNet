@@ -20,6 +20,11 @@
 		00B931E11705459F000B7354 /* GenAl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00B931DF1705459F000B7354 /* GenAl.cpp */; };
 		2E47F8001704D62A00BE7285 /* Leer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E47F7FE1704D62900BE7285 /* Leer.cpp */; };
 		2E55D06117062CFE00F03022 /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E55D05F17062CFE00F03022 /* utilities.cpp */; };
+		2E74668D1708F86400AB9122 /* gl2ps.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E7466891708F86400AB9122 /* gl2ps.c */; };
+		2E74668E1708F86400AB9122 /* matplotpp.cc in Sources */ = {isa = PBXBuildFile; fileRef = 2E74668B1708F86400AB9122 /* matplotpp.cc */; };
+		2E7466911708F8D500AB9122 /* draftsman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E74668F1708F8D500AB9122 /* draftsman.cpp */; };
+		2E7466951708FAD900AB9122 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7466931708FAD900AB9122 /* OpenGL.framework */; };
+		2E7466961708FAD900AB9122 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7466941708FAD900AB9122 /* GLUT.framework */; };
 		2EEB5E1C17076CF70094CF05 /* Crunch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB5E1417076CF60094CF05 /* Crunch.cpp */; };
 		2EEB5E1D17076CF70094CF05 /* DoubleEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB5E1617076CF60094CF05 /* DoubleEdge.cpp */; };
 		2EEB5E1E17076CF70094CF05 /* Endeavor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB5E1817076CF60094CF05 /* Endeavor.cpp */; };
@@ -68,6 +73,15 @@
 		2E47F7FF1704D62900BE7285 /* Leer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leer.h; sourceTree = "<group>"; };
 		2E55D05F17062CFE00F03022 /* utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utilities.cpp; sourceTree = "<group>"; };
 		2E55D06017062CFE00F03022 /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
+		2E7466891708F86400AB9122 /* gl2ps.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gl2ps.c; sourceTree = "<group>"; };
+		2E74668A1708F86400AB9122 /* gl2ps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl2ps.h; sourceTree = "<group>"; };
+		2E74668B1708F86400AB9122 /* matplotpp.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matplotpp.cc; sourceTree = "<group>"; };
+		2E74668C1708F86400AB9122 /* matplotpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matplotpp.h; sourceTree = "<group>"; };
+		2E74668F1708F8D500AB9122 /* draftsman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draftsman.cpp; sourceTree = "<group>"; };
+		2E7466901708F8D500AB9122 /* draftsman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draftsman.h; sourceTree = "<group>"; };
+		2E7466921708FAB500AB9122 /* bitmap_image.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bitmap_image.hpp; sourceTree = "<group>"; };
+		2E7466931708FAD900AB9122 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		2E7466941708FAD900AB9122 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		2EEB5E1417076CF60094CF05 /* Crunch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Crunch.cpp; sourceTree = "<group>"; };
 		2EEB5E1517076CF60094CF05 /* Crunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crunch.h; sourceTree = "<group>"; };
 		2EEB5E1617076CF60094CF05 /* DoubleEdge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoubleEdge.cpp; sourceTree = "<group>"; };
@@ -89,6 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E7466951708FAD900AB9122 /* OpenGL.framework in Frameworks */,
+				2E7466961708FAD900AB9122 /* GLUT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +158,8 @@
 		0094F41616D58CEE00FA0F2E = {
 			isa = PBXGroup;
 			children = (
+				2E7466931708FAD900AB9122 /* OpenGL.framework */,
+				2E7466941708FAD900AB9122 /* GLUT.framework */,
 				0094F42116D58CEE00FA0F2E /* NeuralNet */,
 				0094F42016D58CEE00FA0F2E /* Products */,
 			);
@@ -158,6 +176,13 @@
 		0094F42116D58CEE00FA0F2E /* NeuralNet */ = {
 			isa = PBXGroup;
 			children = (
+				2E7466921708FAB500AB9122 /* bitmap_image.hpp */,
+				2E74668F1708F8D500AB9122 /* draftsman.cpp */,
+				2E7466901708F8D500AB9122 /* draftsman.h */,
+				2E7466891708F86400AB9122 /* gl2ps.c */,
+				2E74668A1708F86400AB9122 /* gl2ps.h */,
+				2E74668B1708F86400AB9122 /* matplotpp.cc */,
+				2E74668C1708F86400AB9122 /* matplotpp.h */,
 				00099F4017049FB9001FB9A0 /* Moves */,
 				00099F4117049FC3001FB9A0 /* Pets */,
 				0094F42216D58CEE00FA0F2E /* main.cpp */,
@@ -244,6 +269,9 @@
 				2EEB5E2617076D060094CF05 /* Rattata.cpp in Sources */,
 				2EEB5E2717076D060094CF05 /* Selem.cpp in Sources */,
 				2EEB5E2817076D060094CF05 /* Yaram.cpp in Sources */,
+				2E74668D1708F86400AB9122 /* gl2ps.c in Sources */,
+				2E74668E1708F86400AB9122 /* matplotpp.cc in Sources */,
+				2E7466911708F8D500AB9122 /* draftsman.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
