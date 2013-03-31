@@ -160,7 +160,9 @@ int AiEngine::CrunchMove(Pet me){
 }
 
 int AiEngine::SuperFangMove(Pet me,Pet foe){
-    
+    if(0.40 * foe.getMaxHP() < foe.getHP() && 0.45 * me.getMaxHP() >= me.getHP() && me.moves[3]->getPP() > 0 &&  me.getLastMove() != 3){
+        return 3;
+    }
     if(0.2 * foe.getMaxHP() < foe.getHP())
         if(me.moves[1]->getPP() > 0)
             return 1;
@@ -176,10 +178,8 @@ int AiEngine::SuperFangMove(Pet me,Pet foe){
 
 int AiEngine::BloodMove(Pet me,Pet foe){
     
-    int diferencia = foe.getHP() - me.getHP();
-    if( diferencia > 0  && me.getLastMove() != 3){
-        if(me.moves[3]->getPP() > 0)
-            return 3;
+    if(0.40 * foe.getMaxHP() < foe.getHP() && 0.45 * me.getMaxHP() >= me.getHP() && me.moves[3]->getPP() > 0 &&  me.getLastMove() != 3){
+        return 3;
     }
     
     if (rand() % 100 >= 30){
@@ -210,6 +210,10 @@ int AiEngine::BloodMove(Pet me,Pet foe){
 
 int AiEngine::SuperDouble(Pet me,Pet foe){
     
+    if(0.40 * foe.getMaxHP() < foe.getHP() && 0.45 * me.getMaxHP() >= me.getHP() && me.moves[3]->getPP() > 0 &&  me.getLastMove() != 3){
+        return 3;
+    }
+    
     if(helper <= 0)
         if(me.moves[1]->getPP() > 0){
             helper++;
@@ -237,6 +241,8 @@ int AiEngine::SuperDouble(Pet me,Pet foe){
 }
 
 int AiEngine::threeMove(Pet me){
+    
+    
     if(helper <= -1)
         if(me.moves[0]->getPP() > 0){
             helper++;
@@ -266,6 +272,7 @@ int AiEngine::threeMove(Pet me){
     
     return -1;
 }
+
 void AiEngine::EncodgingToFile(const char * file){
     
     neuralNet.toFile(file);

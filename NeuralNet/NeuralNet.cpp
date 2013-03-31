@@ -133,6 +133,11 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
      openentes.push_back(new Saquito(2));
      */
     //Agrego varios random para que se enfrenten a varios
+    
+    /*
+    openentes.push_back(new Rattata(stats,NEURAL,"prueba.txt"));
+    openentes.push_back(new Rattata(stats,NEURAL,"prueba.txt"));
+    openentes.push_back(new Rattata(stats,NEURAL,"prueba.txt"));*/
     openentes.push_back(new Rattata(stats, CRUNCH));
     openentes.push_back(new Rattata(stats, CRUNCH));
     openentes.push_back(new Rattata(stats, CRUNCH));

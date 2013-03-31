@@ -46,5 +46,5 @@ void Rattata::addMoves()
     moves.push_back(new Crunch());
     moves.push_back(new SuperFang());
     moves.push_back(new DoubleEdge());
-    moves.push_back(new Endeavor());
+    moves.push_back(new Recover());
 }

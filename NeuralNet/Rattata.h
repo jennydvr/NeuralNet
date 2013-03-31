@@ -13,7 +13,7 @@
 #include "Crunch.h"
 #include "Endeavor.h"
 #include "DoubleEdge.h"
-
+#include "Recover.h"
 class Rattata : public Pet {
 protected:
     
