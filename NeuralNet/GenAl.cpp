@@ -50,12 +50,12 @@ std::vector<NeuralNet> GenAI::rankingSelection(std::vector<NeuralNet> population
     std::vector<NeuralNet> newPopulation;
     
     // Calcular el fitness total
-    float sum = 0;
+    int sum = 0;
     for (int i = 0; i != (int)population.size(); ++i)
         sum += population[i].getFitness();
     
     // Ordenar la poblacion por fitness relativo
-    mergeSort(population, 0, (int)population.size() - 1, sum);
+    mergeSort(population, 0, (int)population.size() - 1,std::abs( sum));
     
     for (int i = (int)population.size() - 1; i != (int)population.size() - 1 - size; --i)
         newPopulation.push_back(population[i]);
@@ -68,11 +68,12 @@ NeuralNet GenAI::getBest()
     int bestIndex = 0;
     float bestFit = std::numeric_limits<float>::min();
     
-    for (int i = 0; i != population.size(); ++i)
+    for (int i = 0; i != population.size(); ++i){
         if (population[i].getFitness() >= bestFit) {
             bestIndex = i;
             bestFit = population[i].getFitness();
         }
+    }
     
     return population[bestIndex];
 }

@@ -14,7 +14,7 @@
 #include "NeuralNet.h"
 
 class Pet;
-enum TypeIA {NEURAL,RANDOM,OFFENSIVE, TACKLE,CRUNCH,SUPERFANG,BLOOD,SUPERDOU};
+enum TypeIA {NEURAL,RANDOM,OFFENSIVE, TACKLE,CRUNCH,SUPERFANG,BLOOD,SUPERDOU,THREE};
 class AiEngine {
 protected:
     int helper;
@@ -33,7 +33,7 @@ protected:
     int SuperFangMove(Pet me,Pet foe);
     int BloodMove(Pet me,Pet foe);
     int SuperDouble(Pet me,Pet foe);
-    
+    int threeMove(Pet me);
     // Escoge un move al azar
     int randomMove(Pet me);
     

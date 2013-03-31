@@ -70,14 +70,15 @@ int main(int argc, const char * argv[])
     
     genetic.Initialize();
     
-    genetic.Run(1000);
+    genetic.Run(2000);
     
     NeuralNet test = genetic.getBest();
     std::cout <<"Fitness: " << test.getFitness()<< endl;
     test.toFile("prueba.txt");
     NeuralNet test2("prueba.txt");
     std::cout <<"Fitness 2: " << test2.getFitness()<< endl;
-
+    NeuralNet test3("prueba.txt");
+    std::cout <<"Fitness 3: " << test3.getFitness()<< endl;
     //std::cout <<"tostring: " << test.getEncoding()<< endl;
 
     return 0;

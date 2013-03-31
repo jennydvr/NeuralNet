@@ -26,6 +26,7 @@ AiEngine::AiEngine(TypeIA _mode, const char * file){
     neuralNet = NeuralNet(file ) ;
     
     helper = -1;
+    
 }
 
 
@@ -51,6 +52,9 @@ int AiEngine::chooseMove(Pet me, Pet foe)
             return BloodMove(me, foe);
         case SUPERDOU:
             return SuperDouble(me, foe);
+            break;
+        case THREE:
+            return threeMove(me);
             break;
         default:
             return randomMove(me);
@@ -232,7 +236,36 @@ int AiEngine::SuperDouble(Pet me,Pet foe){
     return -1;
 }
 
-
+int AiEngine::threeMove(Pet me){
+    if(helper <= -1)
+        if(me.moves[0]->getPP() > 0){
+            helper++;
+            return 0;
+        }
+    if(helper <= 0)
+        if(me.moves[1]->getPP() > 0){
+            helper++;
+            return 1;
+        }
+    
+    if(helper <= 1)
+        if(me.moves[2]->getPP() > 0){
+            helper++;
+            return 2;
+        }
+    if(me.moves[0]->getPP() > 0)
+        return 0;
+    
+    if(me.moves[1]->getPP() > 0)
+        return 1;
+    if(me.moves[2]->getPP() > 0)
+        return 2;
+    
+    if(me.moves[3]->getPP() > 0)
+        return 3;
+    
+    return -1;
+}
 void AiEngine::EncodgingToFile(const char * file){
     
     neuralNet.toFile(file);
