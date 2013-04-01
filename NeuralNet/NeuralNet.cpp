@@ -97,18 +97,26 @@ void NeuralNet::mutateNode(int node)
         encoding[index + k] += -1 + (float)rand()/((float)RAND_MAX/(2));
 }
 
-NeuralNet NeuralNet::crossover(NeuralNet mom, NeuralNet dad)
+std::vector<NeuralNet> NeuralNet::crossover(NeuralNet mom, NeuralNet dad)
 {
-    std::vector<float> kid;
+    std::vector<float> kid1;
+    std::vector<float> kid2;
     
     for (int i = 0; i != numWeights; ++i) {
-        if (rand() % 100 < 50)
-            kid.push_back(mom.encoding[i]);
-        else
-            kid.push_back(dad.encoding[i]);
+        if (rand() % 100 < 50) {
+            kid1.push_back(mom.encoding[i]);
+            kid2.push_back(dad.encoding[i]);
+        } else {
+            kid1.push_back(dad.encoding[i]);
+            kid2.push_back(dad.encoding[i]);
+        }
     }
     
-    return NeuralNet(kid);
+    std::vector<NeuralNet> children;
+    children.push_back(NeuralNet(kid1));
+    children.push_back(NeuralNet(kid2));
+    
+    return children;
 }
 
 float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
@@ -124,7 +132,12 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     
     //Esto es ineficiente
     std::vector<Pet *> openentes;
-
+    int numNeural = 20;
+    for (int i =0; i <numNeural; i++) {
+        openentes.push_back(new Rattata(stats, NEURAL,"BestNeuralPokemon.txt"));
+        
+    }
+    
     int numCrunch = 20;
     for (int i =0; i <numCrunch; i++) {
         openentes.push_back(new Rattata(stats, CRUNCH));
@@ -159,12 +172,12 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     
     int GAMESTOURNAMENT = (int)openentes.size();
     
-    std::vector<int> timeEachGame(GAMESTOURNAMENT);
+    std::vector<float> timeEachGame(GAMESTOURNAMENT);
     std::vector<int> resultEachGame(GAMESTOURNAMENT);
     
     bool currentPlayer = true;
     int time = 0;
-    int MaxTime = 0;
+    float MaxTime = 0;
     float sum = 0;
     for (int i=0; i < GAMESTOURNAMENT; i++) {
         openentes[i]->resetStats();
@@ -212,13 +225,15 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
    // sum = pow(sum,2);
     
     for (int i =0; i<GAMESTOURNAMENT; i++) {
-        int diff = (MaxTime - timeEachGame[i] + 1);
+        float rturnos = MaxTime == 0 ? 0 : timeEachGame[i] / MaxTime ;
+
+        //int diff = (MaxTime - timeEachGame[i] + 1);
         if(resultEachGame[i]==1){
-            sum-= diff ;
+            sum += 0 + rturnos ;
         }else if(resultEachGame[i]==4){
-             sum+= 3 * diff ;
+             sum+= 5  - rturnos ;
         }else if(resultEachGame[i]==2){
-             sum+= diff;
+             sum+= 2 + rturnos;
         }
     }    
     //Luego sumar el promedio de las partidas aqui

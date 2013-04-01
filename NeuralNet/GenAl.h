@@ -25,7 +25,7 @@ public:
     GenAI(int size){
         pSize = size;
         crossoverRate = 0.5;
-        mutationRate = 0.5;
+        mutationRate = 0.75;
     }
     
     GenAI(int size, float CrosR, float MutRa){

@@ -58,7 +58,7 @@ public:
     static float executeTournamentGames(std::vector<float> _encoding);
     
     // Crossover
-    static NeuralNet crossover(NeuralNet mom, NeuralNet dad);
+    static std::vector<NeuralNet> crossover(NeuralNet mom, NeuralNet dad);
     
     // Fitness
     float getFitness();

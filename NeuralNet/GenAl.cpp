@@ -95,11 +95,9 @@ void GenAI::Run(int epochs){
         std::vector<NeuralNet> offspring;
         for (int i = 0; i != parents.size(); i += 2)
         {
-           // std::vector<NeuralNet> osp = NeuralNet::crossover(parents[i], parents[i+1]);
-            //offspring.push_back(osp[0]);
-            //offspring.push_back(osp[1]);
-             NeuralNet osp = NeuralNet::crossover(parents[i], parents[i+1]);
-            offspring.push_back(osp);
+            std::vector<NeuralNet> osp = NeuralNet::crossover(parents[i], parents[i+1]);
+            offspring.push_back(osp[0]);
+            offspring.push_back(osp[1]);
         }
         
         // Mutacion

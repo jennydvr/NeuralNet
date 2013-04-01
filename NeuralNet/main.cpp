@@ -16,8 +16,8 @@ using namespace std;
 
 #define NUMGAMES 100
 #define NUMTEST 10
-#define NUMPOBLACION 100
-#define NUMITER 2000
+#define NUMPOBLACION 50
+#define NUMITER 1000
 struct DataGame{
   
     int whoWin;
@@ -203,7 +203,188 @@ std::vector<PercentGame> dataPrueba1(){
     return perGames;
     
 }
-
+std::vector<PercentGame> dataPrueba2(){
+    
+    std::vector<FormulaValue>stats;
+    int level = 100;
+    stats.push_back(FormulaValue(HP, 170, 30, 31, level, 1,0));
+    stats.push_back(FormulaValue(ATTACK, 170, 56, 31, level, 1,0));
+    stats.push_back(FormulaValue(DEFENSE, 170, 35, 31, level, 1, 0));
+    
+    std::vector<Pet *> player;
+    player.push_back(new Rattata(stats,NEURAL,"BestNeuralPokemon.txt"));
+    player.push_back(new Rattata(stats, CRUNCH));
+    player.push_back(new Rattata(stats, BLOOD));
+    player.push_back(new Rattata(stats, SUPERFANG));
+    player.push_back(new Rattata(stats, SUPERDOU));
+    player.push_back(new Rattata(stats, THREE));
+    player.push_back(new Rattata(stats, RANDOM));
+    
+    std::vector< std::vector< DataGame > > datos = tournament(player);
+    float totalGames = NUMGAMES * player.size();
+    
+    std::vector<PercentGame> perGames;
+    
+    std::cout << "___ Torneo Prueba: 2 ____ "<<std::endl;
+    std::cout << "___ Games C/U: "<< totalGames<< " ____ "<<std::endl;
+    std::cout << " "<<std::endl;
+    
+    for (int i = 0; i <(int)datos.size(); i++) {
+        PercentGame percent;
+        switch (i) {
+            case 0:
+                std::cout << "Neural: ";
+                percent.name = NEURAL;
+                break;
+            case 1:
+                std::cout << "Crunch: ";
+                percent.name = CRUNCH;
+                break;
+            case 2:
+                std::cout << "Blood: ";
+                percent.name = BLOOD;
+                break;
+            case 3:
+                std::cout << "SUPERFANG: ";
+                percent.name = SUPERFANG;
+                break;
+            case 4:
+                std::cout << "SUPERDOU: ";
+                percent.name = SUPERDOU;
+                
+                break;
+            case 5:
+                std::cout << "THREE: ";
+                percent.name = THREE;
+                break;
+            case 6:
+                std::cout << "RANDOM: ";
+                percent.name = RANDOM;
+                break;
+        }
+        float win = 0;
+        float lose = 0;
+        float tie = 0;
+        for (int j = 0; j <(int)datos[i].size(); j++) {
+            switch (datos[i][j].whoWin ) {
+                case 1:
+                    win++;
+                    break;
+                case 2:
+                    lose++;
+                    break;
+                    
+                default:
+                    tie++;
+                    break;
+            }
+            
+        }
+        float percWin = win * 100 / totalGames;
+        float percLose = lose * 100 / totalGames;
+        float percTie = tie * 100 / totalGames;
+        percent.win = percWin;
+        percent.lost = percLose;
+        percent.tie  = percTie;
+        perGames.push_back(percent);
+        std::cout << " Wins: " << percWin << " Lost: " << percLose <<" Tie: " << percTie << std::endl;
+        std::cout << " "<<std::endl;
+    }
+    
+    return perGames;
+    
+}
+std::vector<PercentGame> dataPrueba3(){
+    
+    std::vector<FormulaValue>stats;
+    int level = 100;
+    stats.push_back(FormulaValue(HP, 170, 30, 31, level, 1,0));
+    stats.push_back(FormulaValue(ATTACK, 170, 56, 31, level, 1,0));
+    stats.push_back(FormulaValue(DEFENSE, 170, 35, 31, level, 1, 0));
+    
+    std::vector<Pet *> player;
+    player.push_back(new Rattata(stats,NEURAL));
+    player.push_back(new Rattata(stats, CRUNCH));
+    player.push_back(new Rattata(stats, BLOOD));
+    player.push_back(new Rattata(stats, SUPERFANG));
+    player.push_back(new Rattata(stats, SUPERDOU));
+    player.push_back(new Rattata(stats, THREE));
+    player.push_back(new Rattata(stats, RANDOM));
+    
+    std::vector< std::vector< DataGame > > datos = tournament(player);
+    float totalGames = NUMGAMES * player.size();
+    
+    std::vector<PercentGame> perGames;
+    
+    std::cout << "___ Torneo Prueba: 2 ____ "<<std::endl;
+    std::cout << "___ Games C/U: "<< totalGames<< " ____ "<<std::endl;
+    std::cout << " "<<std::endl;
+    
+    for (int i = 0; i <(int)datos.size(); i++) {
+        PercentGame percent;
+        switch (i) {
+            case 0:
+                std::cout << "Neural: ";
+                percent.name = NEURAL;
+                break;
+            case 1:
+                std::cout << "Crunch: ";
+                percent.name = CRUNCH;
+                break;
+            case 2:
+                std::cout << "Blood: ";
+                percent.name = BLOOD;
+                break;
+            case 3:
+                std::cout << "SUPERFANG: ";
+                percent.name = SUPERFANG;
+                break;
+            case 4:
+                std::cout << "SUPERDOU: ";
+                percent.name = SUPERDOU;
+                
+                break;
+            case 5:
+                std::cout << "THREE: ";
+                percent.name = THREE;
+                break;
+            case 6:
+                std::cout << "RANDOM: ";
+                percent.name = RANDOM;
+                break;
+        }
+        float win = 0;
+        float lose = 0;
+        float tie = 0;
+        for (int j = 0; j <(int)datos[i].size(); j++) {
+            switch (datos[i][j].whoWin ) {
+                case 1:
+                    win++;
+                    break;
+                case 2:
+                    lose++;
+                    break;
+                    
+                default:
+                    tie++;
+                    break;
+            }
+            
+        }
+        float percWin = win * 100 / totalGames;
+        float percLose = lose * 100 / totalGames;
+        float percTie = tie * 100 / totalGames;
+        percent.win = percWin;
+        percent.lost = percLose;
+        percent.tie  = percTie;
+        perGames.push_back(percent);
+        std::cout << " Wins: " << percWin << " Lost: " << percLose <<" Tie: " << percTie << std::endl;
+        std::cout << " "<<std::endl;
+    }
+    
+    return perGames;
+    
+}
 void promedioPrueba(int numPrueba){
     
     std::vector <std::vector<PercentGame>> totalGames;
@@ -212,12 +393,27 @@ void promedioPrueba(int numPrueba){
             for (int i =0; i<NUMTEST; i++) {
                 totalGames.push_back(dataPrueba1());
             }
+            std::cout << "___ Torneo Total Prueba: 1 ____ "<<std::endl;
+
             break;
+        case 2:
+            for (int i =0; i<NUMTEST; i++) {
+                totalGames.push_back(dataPrueba2());
+            }
+            std::cout << "___ Torneo Total Prueba: 2 ____ "<<std::endl;
+
+            break;
+        case 3:
+            for (int i =0; i<NUMTEST; i++) {
+                totalGames.push_back(dataPrueba3());
+            }
+            std::cout << "___ Torneo Total Prueba: 3 ____ "<<std::endl;
             
+            break;
         default:
             break;
     }
-    std::cout << "___ Torneo Total Prueba: 1 ____ "<<std::endl;
+
     std::cout << "___ Num Pruebas: "<< NUMTEST<< " ____ "<<std::endl;
     std::cout << " "<<std::endl;
     for (int j = 0; j < (int)totalGames[0].size(); j++) {
@@ -303,11 +499,12 @@ NeuralNet promedioGenetic(){
 int main(int argc,  char * argv[])
 {
     srand((unsigned int)time(0));
-    //promedioPrueba(1);
+    promedioPrueba(3);
     
+    /*
     NeuralNet bestAll = promedioGenetic();
     bestAll.toFile("BestNeuralPokemon.txt");
-    Plotear(argc, argv);
+    Plotear(argc, argv);*/
 
     return 0;
 }
