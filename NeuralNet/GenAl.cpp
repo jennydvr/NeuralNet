@@ -46,6 +46,52 @@ std::vector<NeuralNet> GenAI::tournamentSelection(std::vector<NeuralNet> &popula
     return newPopulation;
 }
 
+std::vector<NeuralNet> GenAI::rouletteSelection(std::vector<NeuralNet> population, int size)
+{
+    std::vector<NeuralNet> newPopulation;
+    
+    // Calcular el fitness total
+    std::vector<int> indexes;
+    float sum = 0;
+    for (int i = 0; i != (int)population.size(); ++i) {
+        sum += population[i].getFitness();
+        indexes.push_back(i);
+    }
+    
+    // Ordenar la poblacion
+    mergeSort(population, 0, (int)population.size() - 1);
+    bool takeone = false;
+    
+    while (newPopulation.size() != size)
+    {
+        takeone = false;
+        float prob = (float)rand()/((float)RAND_MAX/sum);
+        float aux = 0;
+        
+        for (int i = (int)indexes.size() - 1; i != -1; --i) {
+            aux += population[indexes[i]].getFitness();
+            
+            
+            if (aux >= prob) {
+                newPopulation.push_back(population[indexes[i]]);
+                
+                sum -= population[indexes[i]].getFitness();
+                indexes.erase(indexes.begin() + i);
+                takeone = true;
+                break;
+            }
+            
+        }
+        if (!takeone) {
+            newPopulation.push_back(population[indexes.back()]);
+            sum -= population[indexes.back()].getFitness();
+            indexes.pop_back();
+        }
+    }
+    
+    return newPopulation;
+}
+
 std::vector<NeuralNet> GenAI::rankingSelection(std::vector<NeuralNet> population, int size){
     std::vector<NeuralNet> newPopulation;
     
@@ -56,6 +102,19 @@ std::vector<NeuralNet> GenAI::rankingSelection(std::vector<NeuralNet> population
     
     // Ordenar la poblacion por fitness relativo
     mergeSort(population, 0, (int)population.size() - 1,std::abs( sum));
+    
+    for (int i = (int)population.size() - 1; i != (int)population.size() - 1 - size; --i)
+        newPopulation.push_back(population[i]);
+    
+    return newPopulation;
+}
+
+std::vector<NeuralNet> GenAI::elitismSelection(std::vector<NeuralNet> &population, int size)
+{
+    std::vector<NeuralNet> newPopulation;
+    
+    // Ordenar la poblacion
+    mergeSort(population, 0, (int)population.size() - 1);
     
     for (int i = (int)population.size() - 1; i != (int)population.size() - 1 - size; --i)
         newPopulation.push_back(population[i]);

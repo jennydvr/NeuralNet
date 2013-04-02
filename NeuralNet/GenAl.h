@@ -24,7 +24,7 @@ protected:
 public:
     GenAI(int size){
         pSize = size;
-        crossoverRate = 0.5;
+        crossoverRate = 0.75;
         mutationRate = 0.75;
     }
     
@@ -42,6 +42,8 @@ public:
 
     static std::vector<NeuralNet> tournamentSelection(std::vector<NeuralNet> &population, int size);
     static std::vector<NeuralNet> rankingSelection(std::vector<NeuralNet> population, int size);
+    static std::vector<NeuralNet> rouletteSelection(std::vector<NeuralNet> population, int size);
+    static std::vector<NeuralNet> elitismSelection(std::vector<NeuralNet> &population, int size);
 
 };
 

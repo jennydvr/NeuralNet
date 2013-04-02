@@ -122,27 +122,29 @@ std::vector<NeuralNet> NeuralNet::crossover(NeuralNet mom, NeuralNet dad)
 float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     
     // Inicializar al jugador
+    std::vector<FormulaValue>stats1;
+    stats1.push_back(FormulaValue(HP, 170, 30, 31, LVLPLAYER, 1,0));
+    stats1.push_back(FormulaValue(ATTACK, 170, 56, 31, LVLPLAYER, 1,0));
+    stats1.push_back(FormulaValue(DEFENSE, 170, 35, 31, LVLPLAYER, 1, 0));
+    
+    Rattata player2(stats1, NEURAL, _encoding);
+    
+    
+    int level = rand() % LVLOPPONENTMAX + LVLOPPONENT;
+    
     std::vector<FormulaValue>stats;
-    int level = 100;
-    stats.push_back(FormulaValue(HP, 170, 30, 31, level, 1,0));
-    stats.push_back(FormulaValue(ATTACK, 170, 56, 31, level, 1,0));
-    stats.push_back(FormulaValue(DEFENSE, 170, 35, 31, level, 1, 0));
-    
-    Rattata player2(stats, NEURAL, _encoding);
-    
+    stats.push_back(FormulaValue(HP, 170, 30, 31, LVLOPPONENT, 1,0));
+    stats.push_back(FormulaValue(ATTACK, 170, 56, 31, LVLOPPONENT, 1,0));
+    stats.push_back(FormulaValue(DEFENSE, 170, 35, 31, LVLOPPONENT, 1, 0));
     //Esto es ineficiente
     std::vector<Pet *> openentes;
-    int numNeural = 20;
-    for (int i =0; i <numNeural; i++) {
-        openentes.push_back(new Rattata(stats, NEURAL,"BestNeuralPokemon.txt"));
-        
-    }
     
     int numCrunch = 20;
     for (int i =0; i <numCrunch; i++) {
         openentes.push_back(new Rattata(stats, CRUNCH));
 
     }
+    
     int numBlood = 20;
     for (int i =0; i <numBlood; i++) {
         openentes.push_back(new Rattata(stats, BLOOD));
