@@ -129,9 +129,6 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
     
     Rattata player2(stats1, NEURAL, _encoding);
     
-    
-    int level = rand() % LVLOPPONENTMAX + LVLOPPONENT;
-    
     std::vector<FormulaValue>stats;
     stats.push_back(FormulaValue(HP, 170, 30, 31, LVLOPPONENT, 1,0));
     stats.push_back(FormulaValue(ATTACK, 170, 56, 31, LVLOPPONENT, 1,0));
@@ -144,7 +141,6 @@ float NeuralNet::executeTournamentGames(std::vector<float> _encoding){
         openentes.push_back(new Rattata(stats, CRUNCH));
 
     }
-    
     int numBlood = 20;
     for (int i =0; i <numBlood; i++) {
         openentes.push_back(new Rattata(stats, BLOOD));

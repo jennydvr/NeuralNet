@@ -17,8 +17,7 @@
 #include <numeric>
 #include <fstream>
 #define NUMHIDDEN 2
-#define LVLOPPONENT 101
-#define LVLOPPONENTMAX 114
+#define LVLOPPONENT 100
 #define LVLPLAYER 100
 class NeuralNet {
 protected:

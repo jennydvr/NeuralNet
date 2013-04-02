@@ -15,7 +15,7 @@ using namespace std;
 
 
 #define NUMGAMES 100
-#define NUMTEST 1
+#define NUMTEST 10
 #define NUMPOBLACION 50
 #define NUMITER 1000
 struct DataGame{
@@ -125,6 +125,7 @@ std::vector<PercentGame> dataPrueba1(){
     stats.push_back(FormulaValue(DEFENSE, 170, 35, 31, LVLOPPONENT, 1, 0));
     
     std::vector<Pet *> player;
+    
     
     player.push_back(new Rattata(stats, CRUNCH));
     player.push_back(new Rattata(stats, BLOOD));
@@ -587,12 +588,12 @@ NeuralNet promedioGenetic(){
 int main(int argc,  char * argv[])
 {
     srand((unsigned int)time(0));
-    //promedioPrueba(3);
+    promedioPrueba(3);
     
-   
+   /*
     NeuralNet bestAll = promedioGenetic();
     bestAll.toFile("BestNeuralPokemon.txt");
-    Plotear(argc, argv);
+    Plotear(argc, argv);*/
      
     return 0;
 }
